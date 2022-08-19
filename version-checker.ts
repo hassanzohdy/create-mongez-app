@@ -1,12 +1,10 @@
 import fs from "@flk/fs";
 import axios from "axios";
 import chalk from "chalk";
-import path from "path";
+import { packageRoot } from "./src/helpers/paths";
 import print from "./src/helpers/cli";
 
-const packagesList = fs.getJson(
-  path.resolve(__dirname, "src/packages-versions.json")
-);
+const packagesList = fs.getJson(packageRoot("files/packages-versions.json"));
 
 const registry = "https://registry.npmjs.org/";
 

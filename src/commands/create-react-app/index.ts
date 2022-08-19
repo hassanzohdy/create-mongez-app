@@ -10,7 +10,7 @@ const packagesOptions = {
   styledComponents: ["@emotion/react", "@emotion/styled"],
 };
 
-const packagesVersion = fs.getJson(packageRoot("src/packages-versions.json"));
+const packagesVersion = fs.getJson(packageRoot("files/packages-versions.json"));
 
 const defaults = {
   styleType: "styledComponents",
