@@ -105,6 +105,12 @@ export default async function createReactApp(
 
   print(colors.magenta("Initializing Git Repository..."));
 
+  // replace _.gitignore to
+  fs.rename(
+    path.resolve(appPath, "_.gitignore"),
+    path.resolve(appPath, ".gitignore")
+  );
+
   // initialize git repository
   exec(`git init`, {
     cwd: appPath,
