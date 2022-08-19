@@ -2,7 +2,7 @@ import fs from "@flk/fs";
 import * as path from "path";
 import exec from "../../helpers/exec";
 import print, { colors } from "../../helpers/cli";
-import { template } from "../../helpers/paths";
+import { packageRoot, template } from "../../helpers/paths";
 import selectAppConfigurations from "./selectAppConfigurations";
 
 const packagesOptions = {
@@ -10,9 +10,7 @@ const packagesOptions = {
   styledComponents: ["@emotion/react", "@emotion/styled"],
 };
 
-const packagesVersion = fs.getJson(
-  path.resolve(process.cwd(), "packages-versions.json")
-);
+const packagesVersion = fs.getJson(packageRoot("src/packages-versions.json"));
 
 const defaults = {
   styleType: "styledComponents",
