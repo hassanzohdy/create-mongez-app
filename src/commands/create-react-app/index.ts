@@ -129,7 +129,7 @@ export default async function createReactApp(
     stdio: "inherit",
   });
 
-  exec(`git commit -m "Initial Commit"`, {
+  exec(`git commit -m 'Initial Commit'`, {
     cwd: appPath,
     stdio: "inherit",
   });
