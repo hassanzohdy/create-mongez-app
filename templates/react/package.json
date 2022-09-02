@@ -13,7 +13,7 @@
     "@mongez/react-atom": "^1.4.5",
     "@mongez/react-form": "^1.5.17",
     "@mongez/react-helmet": "^1.0.9",
-    "@mongez/react-router": "^1.0.58",
+    "@mongez/react-router": "^1.0.59",
     "@mongez/react-wizard": "^1.1.17",
     "@mongez/reinforcements": "^1.0.28",
     "@mongez/supportive-is": "^1.0.5",
@@ -70,7 +70,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
-    "prettier-plugin-organize-imports": "^3.1.0"
+    "prettier-plugin-organize-imports": "^3.1.1"
   },
   "browserslist": {
     "production": [
