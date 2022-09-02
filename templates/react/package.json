@@ -33,7 +33,7 @@
     "test": "npx react-scripts test",
     "dev": "unlink yarn.lock && yarn update && yarn install && yarn start",
     "update": "npx ncu -u",
-    "lint": "npx eslint .",
+    "lint": "npx eslint -c ./.eslintrc.json ./src",
     "fix": "npx eslint --fix -c ./.eslintrc.json ./src",
     "format": "npx prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
     "eject": "npx react-scripts eject"
