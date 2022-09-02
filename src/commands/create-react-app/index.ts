@@ -1,7 +1,7 @@
 import fs from "@flk/fs";
 import * as path from "path";
-import exec from "../../helpers/exec";
 import print, { colors } from "../../helpers/cli";
+import exec from "../../helpers/exec";
 import { packageRoot, template } from "../../helpers/paths";
 import selectAppConfigurations from "./selectAppConfigurations";
 
@@ -129,7 +129,7 @@ export default async function createReactApp(
     stdio: "inherit",
   });
 
-  exec(`git commit -m 'Initial Commit'`, {
+  exec(`git commit -m Initial`, {
     cwd: appPath,
     stdio: "inherit",
   });

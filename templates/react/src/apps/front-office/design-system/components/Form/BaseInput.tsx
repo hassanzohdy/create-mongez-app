@@ -1,4 +1,5 @@
 import { FormInputProps, useFormInput } from "@mongez/react-form";
+import { requiredRule } from "@mongez/validator";
 import InputError from "./InputError";
 import InputLabel from "./InputLabel";
 
@@ -36,3 +37,9 @@ export default function BaseInput(props: FormInputProps) {
     </>
   );
 }
+
+
+BaseInput.defaultProps = {
+  type: "text",
+  rules: [requiredRule],
+};

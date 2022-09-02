@@ -2,6 +2,7 @@ import { EncryptedLocalStorageDriver } from "@mongez/cache";
 import { ApplicationConfigurations, setAppConfigurations } from "@mongez/react";
 import uk from "assets/images/flags/uk.png";
 import AES from "crypto-js/aes";
+import Root from "design-system/layouts/Root";
 
 const appConfigurations: ApplicationConfigurations = {
   localization: {
@@ -11,7 +12,7 @@ const appConfigurations: ApplicationConfigurations = {
       en: {
         direction: "ltr",
         name: "English",
-        flag: uk,
+        flag: uk, // optional
       },
     },
   },
@@ -20,7 +21,8 @@ const appConfigurations: ApplicationConfigurations = {
     driver: AES,
   },
   cache: {
-    prefix: process.env.REACT_APP_CODE_NAME,
+    // make the cache prefix with the app code name, append the branch name (if exists)
+    prefix: process.env.REACT_APP_CODE_NAME + (process.env.NODE_ENV === 'development' && process.env.REACT_APP_BRANCH_NAME || ''),
     driver: new EncryptedLocalStorageDriver(),
   },
   helmet: {
@@ -36,9 +38,14 @@ const appConfigurations: ApplicationConfigurations = {
       mode: "redirect",
       route: "/404",
     },
+    // to set a preloader between the router navigation, pass it to the `preloader` property
     // preloader: Preloader,
+    // will wrap the entire application
+    rootComponent: Root,
   },
   endpoint: {
+    // will convert any PUT request to a POST request with a body of the form: and append _method=PUT to the body 
+    // whether the request body is object, FormElement or FormData 
     putToPost: true,
     baseUrl: process.env.REACT_APP_API_URL,
     apiKey: process.env.REACT_APP_API_KEY,

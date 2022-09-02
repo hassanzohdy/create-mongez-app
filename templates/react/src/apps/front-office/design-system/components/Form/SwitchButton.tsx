@@ -1,7 +1,6 @@
-import { FormInputProps, useFormInput } from "@mongez/react-form";
+import { FormInputProps, HiddenInput, useFormInput } from "@mongez/react-form";
 import Is from "@mongez/supportive-is";
 import { useState } from "react";
-import HiddenInput from "./HiddenInput";
 import InputLabel from "./InputLabel";
 
 export type CheckboxProps = FormInputProps & {

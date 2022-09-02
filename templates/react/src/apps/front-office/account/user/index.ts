@@ -3,7 +3,7 @@ import {
   setCurrentUser,
   User as BaseUser,
   UserCacheDriverInterface,
-  UserInterface,
+  UserInterface
 } from "@mongez/user";
 
 class User extends BaseUser implements UserInterface {
@@ -21,10 +21,13 @@ class User extends BaseUser implements UserInterface {
 
 const user: User = new User();
 
-// boot the class
+// boot the user
 user.boot();
 
 // update current user instance to be used from other packages
 setCurrentUser(user);
 
 export default user;
+
+// now you can directly import the user anywhere in the application using `import user from 'user';` thanks to the module alias
+// @see `_moduleAliases` in package.json file

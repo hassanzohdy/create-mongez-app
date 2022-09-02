@@ -1,5 +1,10 @@
+// to know more about localization 
+// @see https://github.com/hassanzohdy/mongez-localization
+
 import { extend, groupedTranslations } from "@mongez/localization";
 import { arTranslation, enTranslation } from "@mongez/validator";
+
+// useful for validation errors for form inputs
 
 extend("en", enTranslation);
 extend("ar", arTranslation);

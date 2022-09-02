@@ -1,5 +1,4 @@
-import { FormInputProps, useFormInput } from "@mongez/react-form";
-import HiddenInput from "./HiddenInput";
+import { FormInputProps, HiddenInput, useFormInput } from "@mongez/react-form";
 import InputLabel from "./InputLabel";
 
 export type DatePickerInputProps = FormInputProps;
