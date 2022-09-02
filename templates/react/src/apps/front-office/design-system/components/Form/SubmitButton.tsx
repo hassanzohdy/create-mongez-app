@@ -1,6 +1,6 @@
 import { useForm } from "@mongez/react-form";
 import { useEffect, useState } from "react";
-import { PrimaryButton } from "./../Button";
+import BaseButton from "./../Button";
 import Loader from "./../Indicators/Loader";
 
 type SubmitButtonProps = {
@@ -41,10 +41,8 @@ export default function SubmitButton({
 
   return (
     <>
-      <PrimaryButton
+      <BaseButton
         type="submit"
-        color="blue"
-        appearance="primary"
         {...props}
         disabled={isDisabled || isSubmitting}>
         {isSubmitting ? (
@@ -56,7 +54,7 @@ export default function SubmitButton({
         ) : (
           children
         )}
-      </PrimaryButton>
+      </BaseButton>
     </>
   );
 }

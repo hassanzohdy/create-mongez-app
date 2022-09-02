@@ -3,7 +3,7 @@ import {
   lengthRule,
   maxLengthRule,
   minLengthRule,
-  requiredRule
+  requiredRule,
 } from "@mongez/validator";
 
 export default function SelectInput(props: FormInputProps) {
@@ -12,7 +12,11 @@ export default function SelectInput(props: FormInputProps) {
 
   return (
     <>
-       // Select Component    
+      {label && <label htmlFor={id}>{label}</label>}
+      <select name={name} id={id} value={value} onChange={onChange}>
+        <option value="">{placeholder}</option>
+      </select>
+      {error && error.errorMessage}
     </>
   );
 }

@@ -9,13 +9,13 @@ export type PreloadRequest = (props: any) => Promise<AxiosResponse>;
  * Load the given request(s) then render the given component once the response is loaded.
  * This utility accept single request or an array of requests.
  * the response of the request is sent to the given component alongside with the passed props.
- * 
+ *
  * Example Of Usage
  *
  *  const HomePage = preload(HomeContent, () => getHome());
- * 
+ *
  * export default HomePage;
- * 
+ *
  * function HomeContent({response}: {response: AxiosResponse}) {
  *  return <div>{response.data.message}</div>;
  * }

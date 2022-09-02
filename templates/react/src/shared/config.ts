@@ -22,7 +22,11 @@ const appConfigurations: ApplicationConfigurations = {
   },
   cache: {
     // make the cache prefix with the app code name, append the branch name (if exists)
-    prefix: process.env.REACT_APP_CODE_NAME + (process.env.NODE_ENV === 'development' && process.env.REACT_APP_BRANCH_NAME || ''),
+    prefix:
+      process.env.REACT_APP_CODE_NAME +
+      ((process.env.NODE_ENV === "development" &&
+        process.env.REACT_APP_BRANCH_NAME) ||
+        ""),
     driver: new EncryptedLocalStorageDriver(),
   },
   helmet: {
@@ -44,8 +48,8 @@ const appConfigurations: ApplicationConfigurations = {
     rootComponent: Root,
   },
   endpoint: {
-    // will convert any PUT request to a POST request with a body of the form: and append _method=PUT to the body 
-    // whether the request body is object, FormElement or FormData 
+    // will convert any PUT request to a POST request with a body of the form: and append _method=PUT to the body
+    // whether the request body is object, FormElement or FormData
     putToPost: true,
     baseUrl: process.env.REACT_APP_API_URL,
     apiKey: process.env.REACT_APP_API_KEY,

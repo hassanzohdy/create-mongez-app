@@ -3,7 +3,7 @@ import {
   setCurrentUser,
   User as BaseUser,
   UserCacheDriverInterface,
-  UserInterface
+  UserInterface,
 } from "@mongez/user";
 
 class User extends BaseUser implements UserInterface {

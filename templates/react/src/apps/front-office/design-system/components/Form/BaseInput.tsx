@@ -38,7 +38,6 @@ export default function BaseInput(props: FormInputProps) {
   );
 }
 
-
 BaseInput.defaultProps = {
   type: "text",
   rules: [requiredRule],

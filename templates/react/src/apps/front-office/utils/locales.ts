@@ -1,4 +1,4 @@
-// to know more about localization 
+// to know more about localization
 // @see https://github.com/hassanzohdy/mongez-localization
 
 import { extend, groupedTranslations } from "@mongez/localization";
