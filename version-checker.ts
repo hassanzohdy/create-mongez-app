@@ -1,8 +1,8 @@
 import fs from "@flk/fs";
 import axios from "axios";
 import chalk from "chalk";
-import { packageRoot } from "./src/helpers/paths";
 import print from "./src/helpers/cli";
+import { packageRoot } from "./src/helpers/paths";
 
 const packagesList = fs.getJson(packageRoot("files/packages-versions.json"));
 
@@ -19,9 +19,9 @@ async function update() {
     if (currentVersion !== newVersion) {
       print(
         chalk.yellow(
-          `${chalk.cyan(packageName)}: ${chalk.green(
+          `${chalk.cyan(packageName)}: ${chalk.red(
             currentVersion
-          )} => ${chalk.red(newVersion)}`
+          )} => ${chalk.green(newVersion)}`
         )
       );
 
