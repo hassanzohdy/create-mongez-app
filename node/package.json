@@ -1,0 +1,38 @@
+{
+  "name": "mongez-node-app",
+  "version": "1.10.0",
+  "private": true,
+  "dependencies": {
+    "@mongez/fs": "^1.0.3",
+    "@mongez/node": "^1.0.0"
+  },
+  "scripts": {
+    "postinstall": "npx link-module-alias",
+    "start": "nodemon src/index.ts --app",
+    "update": "npx ncu -u",
+    "lint": "npx eslint -c ./.eslintrc.json ./src",
+    "fix": "npx eslint --fix -c ./.eslintrc.json ./src",
+    "format": "npx prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json"
+  },
+  "_moduleAliases": {
+    "src": "./src"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2",
+    "@types/node": "^18.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "link-module-alias": "^1.2.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.5.0",
+    "npm-check-updates": "^16.0.6",
+    "prettier": "^2.7.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier-plugin-organize-imports": "^3.1.1"
+  }
+}
