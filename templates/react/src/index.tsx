@@ -1,7 +1,9 @@
 import startApplication from "@mongez/react";
-import "./shared/apps-list";
-import "./shared/config";
+import "./shared/shared-provider";
 
 startApplication({
-  debug: true,
+  // debug is for development only as it will turn on the web vitals once its enabled
+  debug: false,
+  detectDarkMode: true,
+  detectDeviceAndBrowser: true,
 });

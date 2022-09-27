@@ -1,9 +1,9 @@
-import { endpointEvents } from "@mongez/http";
 import { AxiosResponse } from "axios";
+import endpoint from "shared/endpoint";
 import user from "user";
 //
 
-endpointEvents.onSuccess((response: AxiosResponse) => {
+endpoint.events.onSuccess((response: AxiosResponse) => {
   if (response.data.data) {
     response.data = response.data.data;
   }
