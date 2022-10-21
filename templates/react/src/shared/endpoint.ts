@@ -17,4 +17,6 @@ const endpoint = new Endpoint({
 
 export default endpoint;
 
+// this will allow us to use the endpoint instance anywhere in the application by importing getCurrentEndpoint
 setCurrentEndpoint(endpoint);
+

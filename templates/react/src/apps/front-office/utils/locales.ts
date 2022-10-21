@@ -9,11 +9,17 @@ import { arTranslation, enTranslation } from "@mongez/validator";
 extend("en", enTranslation);
 extend("ar", arTranslation);
 
-// Add only common localization
+// Add common localization
 groupedTranslations({
   loading: {
     en: "Loading...",
     ar: "جار التحميل...",
+  },
+  // for placeholders please check the following link
+  // https://github.com/hassanzohdy/mongez-localization#translation-placeholders
+  createItem: {
+    en: "Create new :item",
+    ar: "إنشاء :item جديد",
   },
   home: {
     en: "Home",

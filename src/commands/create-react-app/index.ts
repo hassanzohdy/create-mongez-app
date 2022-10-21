@@ -1,4 +1,4 @@
-import fs from "@flk/fs";
+import fs from "@mongez/fs";
 import * as path from "path";
 import print, { colors } from "../../helpers/cli";
 import exec from "../../helpers/exec";
@@ -12,40 +12,15 @@ const packagesOptions = {
 
 const packagesVersion = fs.getJson(packageRoot("files/packages-versions.json"));
 
-const defaults = {
-  styleType: "styledComponents",
-};
-
 // TODO: add slim feature
 // TODO: add mongez.json file in workspace for quick installation
 // TODO: add color, api, locales and other dot env details in cli for replacements
-export default async function createReactApp(
-  appName: string,
-  incomingOptions: any
-) {
-  const appPath: string = path.resolve(process.cwd(), appName);
+export default async function createReactApp({ appName, appPath }) {
+  const options = await selectAppConfigurations();
 
-  if (fs.isDirectory(appPath)) {
-    return print(
-      colors.redBright(
-        `${process.cwd()} has an existing directory \`${colors.cyan(
-          appName
-        )}\`, please choose another app name or another directory to run the command from.`
-      )
-    );
-  }
+  print(colors.yellow(`Crafting ${colors.cyan(appName)}`));
 
-  const options = incomingOptions.defaults
-    ? defaults
-    : await selectAppConfigurations();
-
-  if (incomingOptions.styleType) {
-    options.styleType = incomingOptions.styleType;
-  }
-
-  print(colors.yellow("Creating React App..."));
-
-  print(colors.cyan("Building Project Structure..."));
+  print(colors.cyan("Building Project Structure"));
 
   // copy project files
   fs.copy(template("react"), appPath);
@@ -69,7 +44,7 @@ export default async function createReactApp(
 
   fs.putJson(path.resolve(appPath, "package.json"), packageJson);
 
-  print(colors.yellow("Installing The Project..."));
+  print(colors.yellow("Installing The Project"));
 
   exec(`yarn install`, {
     cwd: appPath,
@@ -103,7 +78,7 @@ export default async function createReactApp(
 
   fs.put(path.resolve(appPath, ".env.production"), dotEnvProduction);
 
-  print(colors.magenta("Initializing Git Repository..."));
+  print(colors.magenta("Initializing Git Repository"));
 
   // replace _.gitignore to
   fs.rename(

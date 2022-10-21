@@ -1,7 +1,7 @@
-import commander, { program } from "commander";
-import fs from "@flk/fs";
+import fs from "@mongez/fs";
+import { Command, program } from "commander";
 import * as path from "path";
-import createReactApp from "./commands/create-react-app";
+import createNewApp from "./commands/create-new-app";
 import print, { colors } from "./helpers/cli";
 
 export default function createApp() {
@@ -12,29 +12,17 @@ export default function createApp() {
   program.version(packageJson["version"]);
 
   print(
-    `Initializing Mongez Create App V${colors.greenBright.bold(
-      packageJson["version"]
+    `Initializing Mongez Create App ${colors.greenBright.bold(
+      "V" + packageJson["version"]
     )}...`
   );
 
-  program
-    .command("react <appName>")
-    .addOption(
-      new commander.Option(
-        "-st, --styleType",
-        "Set the style type to use, available options are: scss, styledComponents, all"
-      )
-        .choices(["scss", "styledComponents", "all"])
-        .default("styledComponents")
-    )
-    .option(
-      "-d, --defaults",
-      "Set default configurations and skip the selection"
-    )
-    .description("Create Typescript React App")
-    .action((appName, options) => {
-      createReactApp(appName, options);
-    });
-
-  program.parse(process.argv);
+  const command = new Command();
+  command
+    .arguments("<appName>")
+    .description("do something with a single source file")
+    .action((appName) => {
+      createNewApp(appName);
+    })
+    .parse();
 }
