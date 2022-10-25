@@ -6,9 +6,8 @@ export default function exec(command: string, options: any = {}): any {
   const [commandName, ...optionsList] = command.split(" ");
 
   print(
-    `Executing command: ${colors.bold(
-      commandName + " " + optionsList.join(" ")
-    )}`
+    // `Executing command: ${colors.bold(
+    `${colors.bold(commandName + " " + optionsList.join(" "))}`
   );
 
   let commandOutput = childProcess.sync(commandName, optionsList, options);

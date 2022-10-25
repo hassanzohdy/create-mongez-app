@@ -3,6 +3,7 @@ import * as path from "path";
 import print, { colors } from "../../helpers/cli";
 import exec from "../../helpers/exec";
 import { packageRoot, template } from "../../helpers/paths";
+import { Application } from "../create-new-app/types";
 import selectAppConfigurations from "./selectAppConfigurations";
 
 const packagesOptions = {
@@ -15,7 +16,10 @@ const packagesVersion = fs.getJson(packageRoot("files/packages-versions.json"));
 // TODO: add slim feature
 // TODO: add mongez.json file in workspace for quick installation
 // TODO: add color, api, locales and other dot env details in cli for replacements
-export default async function createReactApp({ appName, appPath }) {
+export default async function createReactApp({
+  appName,
+  appPath,
+}: Required<Application>) {
   const options = await selectAppConfigurations();
 
   print(colors.yellow(`Crafting ${colors.cyan(appName)}`));

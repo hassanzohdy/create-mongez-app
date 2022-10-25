@@ -20,7 +20,7 @@ export default function createApp() {
   const command = new Command();
   command
     .arguments("<appName>")
-    .description("do something with a single source file")
+    .description("Create NewApplication")
     .action((appName) => {
       createNewApp(appName);
     })

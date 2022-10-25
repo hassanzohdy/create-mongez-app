@@ -1,12 +1,13 @@
 import fs from "@mongez/fs";
 import path from "path";
+import { Application } from "../create-new-app/types";
 import print, { colors } from "./../../helpers/cli";
 import exec from "./../../helpers/exec";
 import initializeGit from "./../../helpers/initializeGit";
 import { template } from "./../../helpers/paths";
 import selectNodeAppConfigurations from "./selectNodeAppConfigurations";
 
-export default async function createNodeApp(appDetails: any) {
+export default async function createNodeApp(appDetails: Application) {
   const { appName, appPath } = appDetails;
 
   appDetails.options = await selectNodeAppConfigurations();

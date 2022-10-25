@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import inquirer from "inquirer";
 
 export default async function selectAppType() {
@@ -10,11 +11,15 @@ export default async function selectAppType() {
         choices: [
           {
             value: "react",
-            name: "React (Typescript)",
+            name: chalk.cyanBright("React (Typescript)"),
           },
           {
             value: "node",
-            name: "Node Js (Typescript)",
+            name: chalk.green("Node Js (Typescript)"),
+          },
+          {
+            value: "laravel",
+            name: chalk.redBright("Laravel (MongoDB)"),
           },
         ],
       },

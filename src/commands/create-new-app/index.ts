@@ -1,12 +1,14 @@
+import createLaravelApp from "../create-laravel-app";
 import createNodeApp from "../create-node-app";
 import createReactApp from "../create-react-app";
 import getAppPath from "./get-app-path";
 import selectAppType from "./select-app-type";
+import { App, Application } from "./types";
 
-let appDetails: any = {
-  appName: null,
-  appType: null,
-  appPath: null,
+let appDetails: App = {
+  appName: "",
+  appType: "",
+  appPath: "",
 };
 
 export default async function createNewApp(appName: string) {
@@ -17,9 +19,13 @@ export default async function createNewApp(appName: string) {
 
   appDetails.appType = await selectAppType();
 
+  const applicationData = appDetails as Application;
+
   if (appDetails.appType === "react") {
-    await createReactApp(appDetails);
+    await createReactApp(applicationData);
   } else if (appDetails.appType === "node") {
-    await createNodeApp(appDetails);
+    await createNodeApp(applicationData);
+  } else if (appDetails.appType === "laravel") {
+    await createLaravelApp(applicationData);
   }
 }

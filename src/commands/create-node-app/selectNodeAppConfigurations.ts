@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 
-export default async function selectNodeAppConfigurations() {
+export default async function selectNodeAppConfigurations(): Promise<any[]> {
   return new Promise((resolve) => {
     inquirer
       .prompt([
