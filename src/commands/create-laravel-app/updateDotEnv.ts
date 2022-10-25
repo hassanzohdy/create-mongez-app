@@ -1,4 +1,4 @@
-import { getFile, putFile } from "@mongez/fs";
+import { getFile, putFile, rename } from "@mongez/fs";
 import chalk from "chalk";
 import { Application } from "../create-new-app/types";
 
@@ -30,7 +30,7 @@ export default function updateDotEnv(app: Application) {
     },
   ];
 
-  const filePath = app.appPath + "/.env";
+  const filePath = app.appPath + "/.env.example";
 
   let dotEnvFile = getFile(filePath);
 
@@ -42,4 +42,6 @@ export default function updateDotEnv(app: Application) {
   });
 
   putFile(filePath, dotEnvFile);
+
+  rename(filePath, app.appPath + "/.env");
 }
