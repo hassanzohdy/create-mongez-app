@@ -7,15 +7,9 @@ header('Cache-Control: max-age=0');
 header('Access-Control-Allow-Methods: *');
 header("Access-Control-Allow-Headers: *");
 
-$directory = substr(dirname(__DIR__), strrpos(str_replace('\\', '/', dirname(__DIR__)), '/') + 1);
-
-$_SERVER['REQUEST_URI'] = str_replace('/happiness/' . $directory, '', $_SERVER['REQUEST_URI']);
-
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header("Access-Control-Allow-Origin: *");
     die("OK");
-} else {
-    // header("Access-Control-Allow-Origin: localhost:81");
 }
 
 define('LARAVEL_START', microtime(true));

@@ -1,5 +1,6 @@
 import fs from "@mongez/fs";
 import path from "path";
+import { installCommand, startCommand } from "src/helpers/package-manager";
 import { Application } from "../create-new-app/types";
 import print, { colors } from "./../../helpers/cli";
 import exec from "./../../helpers/exec";
@@ -28,7 +29,7 @@ export default async function createNodeApp(appDetails: Application) {
 
   print(colors.yellow("Installing The Project"));
 
-  exec(`yarn install`, {
+  exec(installCommand(), {
     cwd: appPath,
     stdio: "inherit",
   });
@@ -41,5 +42,5 @@ export default async function createNodeApp(appDetails: Application) {
     )
   );
 
-  print(colors.cyan(`cd ${appName} && yarn start`));
+  print(colors.cyan(`cd ${appName} && ${startCommand()}`));
 }
