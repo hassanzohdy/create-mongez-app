@@ -9,7 +9,7 @@ export function getAppsConstants(apps: any[]) {
         *
         * @const string
         */
-        const ${app.app.toLocaleUpperCase()}_APP = '${app.apiKey}}';
+        const ${app.app.toLocaleUpperCase()}_APP = '${app.apiKey}';
 
 `;
   });
