@@ -1,6 +1,6 @@
 import createLaravelApp from "../create-laravel-app";
 import createNodeApp from "../create-node-app";
-import createReactApp from "../create-react-app";
+import createReactApp from "../vite-react";
 import getAppPath from "./get-app-path";
 import selectAppType from "./select-app-type";
 import { App, Application } from "./types";

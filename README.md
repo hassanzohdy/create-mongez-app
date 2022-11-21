@@ -17,3 +17,8 @@ When you run the command, it will ask you what style type you prefer to use, you
 You can also choose to select the defaults values by passing `--defaults` arguments or `-d` for shorthand
 
 `npx create-mongez-app react my-app --defaults`
+
+## Change Log
+
+- 2.1.0 (21 Nov 2022)
+  - Used Vite instead of CRA for creating React Js Projects
