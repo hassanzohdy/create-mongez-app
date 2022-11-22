@@ -1,4 +1,4 @@
-import fs, {
+import {
   copy,
   getFile,
   getJson,
@@ -64,8 +64,7 @@ export default async function createReactApp({
   });
 
   // update env file
-  const dotEnv = fs
-    .get(path.resolve(appPath, ".env"))
+  const dotEnv = getFile(path.resolve(appPath, ".env"))
     .replace("AppName", appName)
     .replace(
       "AppCodeName",
