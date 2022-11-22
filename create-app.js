@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-
-const createApp = require("./cjs/index.js");
+import createApp from "./esm/index.js";
 
 createApp();
