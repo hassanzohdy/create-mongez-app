@@ -1,5 +1,5 @@
 import { getFile, putFile } from "@mongez/fs";
-import phpPlugin from "@prettier/plugin-php/standalone";
+import phpPlugin from "@prettier/plugin-php";
 import prettier from "prettier";
 
 export default function formatFile(filePath: string) {
