@@ -1,4 +1,4 @@
-import fs from "@mongez/fs";
+import { renameFile } from "@mongez/fs";
 import path from "path";
 import print, { colors } from "./cli";
 import exec from "./exec";
@@ -7,7 +7,7 @@ export default function initializeGit(appPath: string) {
   print(colors.magenta("Initializing Git Repository..."));
 
   // replace _.gitignore to
-  fs.rename(
+  renameFile(
     path.resolve(appPath, "_.gitignore"),
     path.resolve(appPath, ".gitignore")
   );

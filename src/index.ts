@@ -1,11 +1,11 @@
-import fs from "@mongez/fs";
+import { getJson } from "@mongez/fs";
 import { Command, program } from "commander";
 import * as path from "path";
 import createNewApp from "./commands/create-new-app";
 import print, { colors } from "./helpers/cli";
 
 export default function createApp() {
-  const packageJson: any = fs.getJson(
+  const packageJson: any = getJson(
     path.resolve(__dirname, "../", "package.json")
   );
 

@@ -1,4 +1,11 @@
-import fs from "@mongez/fs";
+import fs, {
+  copy,
+  getFile,
+  getJson,
+  putFile,
+  putJson,
+  renameFile,
+} from "@mongez/fs";
 import * as path from "path";
 import { installCommand, startCommand } from "src/helpers/package-manager";
 import print, { colors } from "../../helpers/cli";
@@ -12,7 +19,7 @@ const packagesOptions = {
   styledComponents: ["@emotion/react", "@emotion/styled"],
 };
 
-const packagesVersion = fs.getJson(packageRoot("files/packages-versions.json"));
+const packagesVersion = getJson(packageRoot("files/packages-versions.json"));
 
 // TODO: add slim feature
 // TODO: add mongez.json file in workspace for quick installation
@@ -28,10 +35,10 @@ export default async function createReactApp({
   print(colors.cyan("Building Project Structure"));
 
   // copy project files
-  fs.copy(template("vite-react"), appPath);
+  copy(template("vite-react"), appPath);
 
   // update package.json file
-  const packageJson: any = fs.getJson(path.resolve(appPath, "package.json"));
+  const packageJson: any = getJson(path.resolve(appPath, "package.json"));
 
   packageJson.name = appName;
 
@@ -47,7 +54,7 @@ export default async function createReactApp({
     }
   }
 
-  fs.putJson(path.resolve(appPath, "package.json"), packageJson);
+  putJson(path.resolve(appPath, "package.json"), packageJson);
 
   print(colors.yellow("Installing The Project"));
 
@@ -68,10 +75,10 @@ export default async function createReactApp({
         .join("")
     );
 
-  fs.put(path.resolve(appPath, ".env"), dotEnv);
+  putFile(path.resolve(appPath, ".env"), dotEnv);
 
   // update .env.production file
-  let dotEnvProduction = fs.get(path.resolve(appPath, ".env.production"));
+  let dotEnvProduction = getFile(path.resolve(appPath, ".env.production"));
 
   dotEnvProduction = dotEnvProduction.replace("AppName", appName).replace(
     "AppCodeName",
@@ -81,12 +88,12 @@ export default async function createReactApp({
       .join("")
   );
 
-  fs.put(path.resolve(appPath, ".env.production"), dotEnvProduction);
+  putFile(path.resolve(appPath, ".env.production"), dotEnvProduction);
 
   print(colors.magenta("Initializing Git Repository"));
 
   // replace _.gitignore to
-  fs.rename(
+  renameFile(
     path.resolve(appPath, "_.gitignore"),
     path.resolve(appPath, ".gitignore")
   );

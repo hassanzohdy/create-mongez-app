@@ -1,11 +1,11 @@
-import fs from "@mongez/fs";
+import { isDirectory } from "@mongez/fs";
 import * as path from "path";
 import print, { colors } from "../../helpers/cli";
 
 export default function getAppPath(appName: string) {
   const appPath: string = path.resolve(process.cwd(), appName);
 
-  if (fs.isDirectory(appPath)) {
+  if (isDirectory(appPath)) {
     print(
       colors.redBright(
         `${process.cwd()} has an existing directory \`${colors.cyan(

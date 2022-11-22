@@ -1,4 +1,4 @@
-import fs from "@mongez/fs";
+import { copy, getJson, putJson } from "@mongez/fs";
 import path from "path";
 import { installCommand, startCommand } from "src/helpers/package-manager";
 import { Application } from "../create-new-app/types";
@@ -18,14 +18,14 @@ export default async function createNodeApp(appDetails: Application) {
   print(colors.cyan("Building Project Structure"));
 
   // copy project files
-  fs.copy(template("node"), appPath);
+  copy(template("node"), appPath);
 
   // update package.json file
-  const packageJson: any = fs.getJson(path.resolve(appPath, "package.json"));
+  const packageJson: any = getJson(path.resolve(appPath, "package.json"));
 
   packageJson.name = appName;
 
-  fs.putJson(path.resolve(appPath, "package.json"), packageJson);
+  putJson(path.resolve(appPath, "package.json"), packageJson);
 
   print(colors.yellow("Installing The Project"));
 
