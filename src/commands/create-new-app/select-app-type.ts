@@ -11,7 +11,7 @@ export default async function selectAppType() {
         choices: [
           {
             value: "react",
-            name: chalk.cyanBright("React (Vite + Typescript)"),
+            name: chalk.cyanBright("React (Typescript)"),
           },
           {
             value: "node",

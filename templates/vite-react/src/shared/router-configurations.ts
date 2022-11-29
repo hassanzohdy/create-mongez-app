@@ -3,7 +3,7 @@ import React from "react";
 import { productionBasePath } from "./flags";
 
 const routerConfigurations: RouterConfigurations = {
-  strict: false,
+  strictMode: true,
   basePath: productionBasePath,
   lazyLoading: {
     loadingComponent: React.lazy(
