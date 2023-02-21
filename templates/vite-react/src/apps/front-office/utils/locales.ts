@@ -1,8 +1,12 @@
 import { extend, groupedTranslations, trans } from "@mongez/localization";
+import { moonlightTranslations } from "@mongez/moonlight";
 import { arTranslation, enTranslation } from "@mongez/validator";
 import mainTranslation from "shared/localization/index.json";
 
+export { mainTranslation };
+
 groupedTranslations(mainTranslation);
+groupedTranslations(moonlightTranslations);
 
 extend("en", enTranslation);
 extend("ar", arTranslation);

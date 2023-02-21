@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   colors: {
     red: {
       main: "#f44336",
@@ -16,6 +16,12 @@ const theme = {
       dark: "#0d47a1",
     },
   },
+  fontFamily: {
+    ar: {
+      primary: "Cairo",
+    },
+    en: {
+      primary: undefined,
+    },
+  },
 };
-
-export default theme;

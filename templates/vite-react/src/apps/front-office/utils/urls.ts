@@ -2,14 +2,29 @@
 
 const URLS = {
   home: "/",
-  blog: "/blog",
-  login: "/login",
-  aboutUs: "/about-us",
+  notFound: "/404",
+  blog: {
+    root: "/blog",
+    viewRoute: "/blog/:id/:slug",
+    view: (post: any) => `/blog/${post.id}/${post.slug}`,
+  },
+  faq: "/faq",
+  auth: {
+    login: "/login",
+    forgetPassword: "/forget-password",
+    resetPassword: "/rest-password",
+    register: "/register",
+    verifyForgetPassword: "/forget-password/verify",
+  },
   settings: "/settings",
   contactUs: "/contact-us",
-  resetPassword: "/rest-password",
-  privacyPolicy: "/privacy-policy",
-  termsConditions: "/terms-conditions",
+  pages: {
+    aboutUs: "/about-us",
+    termsConditions: "/terms-conditions",
+    privacyPolicy: "/privacy-policy",
+    viewRoute: "/pages/:slug",
+    view: (page: any) => `/pages/${page.id}/${page.slug}`,
+  },
 };
 
 export default URLS;

@@ -36,6 +36,8 @@ export default function parseError(error: any) {
 
       return error;
     });
+  } else {
+    errorContent = <p>{error}</p>;
   }
 
   return errorContent;

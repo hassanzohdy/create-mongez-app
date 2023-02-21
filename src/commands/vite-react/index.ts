@@ -12,7 +12,6 @@ import print, { colors } from "../../helpers/cli";
 import exec from "../../helpers/exec";
 import { packageRoot, template } from "../../helpers/paths";
 import { Application } from "../create-new-app/types";
-import selectAppConfigurations from "./selectAppConfigurations";
 
 const packagesOptions = {
   scss: ["sass"],
@@ -28,7 +27,11 @@ export default async function createReactApp({
   appName,
   appPath,
 }: Required<Application>) {
-  const options = await selectAppConfigurations();
+  // replace _.gitignore to
+  renameFile(
+    path.resolve(appPath, "_.gitignore"),
+    path.resolve(appPath, ".gitignore")
+  );
 
   print(colors.yellow(`Crafting ${colors.cyan(appName)}`));
 
@@ -41,18 +44,6 @@ export default async function createReactApp({
   const packageJson: any = getJson(path.resolve(appPath, "package.json"));
 
   packageJson.name = appName;
-
-  if (["scss", "all"].includes(options.styleType)) {
-    for (const packageName of packagesOptions.scss) {
-      packageJson.dependencies[packageName] = packagesVersion[packageName];
-    }
-  }
-
-  if (["styledComponents", "all"].includes(options.styleType)) {
-    for (const packageName of packagesOptions.styledComponents) {
-      packageJson.dependencies[packageName] = packagesVersion[packageName];
-    }
-  }
 
   putJson(path.resolve(appPath, "package.json"), packageJson);
 
@@ -91,12 +82,6 @@ export default async function createReactApp({
 
   print(colors.magenta("Initializing Git Repository"));
 
-  // replace _.gitignore to
-  renameFile(
-    path.resolve(appPath, "_.gitignore"),
-    path.resolve(appPath, ".gitignore")
-  );
-
   // initialize git repository
   exec(`git init`, {
     cwd: appPath,
@@ -109,16 +94,16 @@ export default async function createReactApp({
     stdio: "inherit",
   });
 
-  // adding all files to git and make a commit
-  exec(`git add .`, {
-    cwd: appPath,
-    stdio: "inherit",
-  });
+  // // adding all files to git and make a commit
+  // exec(`git add .`, {
+  //   cwd: appPath,
+  //   stdio: "inherit",
+  // });
 
-  exec(`git commit -m Initial`, {
-    cwd: appPath,
-    stdio: "inherit",
-  });
+  // exec(`git commit -m Initial`, {
+  //   cwd: appPath,
+  //   stdio: "inherit",
+  // });
 
   print(
     colors.green(

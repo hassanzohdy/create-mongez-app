@@ -295,6 +295,10 @@
     "en": "Sign In",
     "ar": "تسجيل الدخول"
   },
+  "signUp": {
+    "en": "Sign Up",
+    "ar": "تسجيل"
+  },
   "forgotPasswordSuccess": {
     "en": "We have sent you an email with a code to reset your password.",
     "ar": "لقد أرسلنا بريدك الإلكتروني مع كود لإعادة تعيين كلمة المرور الخاصة بك."
@@ -1390,6 +1394,18 @@
   "notFoundPage": {
     "en": "Not Found Page",
     "ar": "الصفحة المطلوبة غير موجودة"
+  },
+  "notFoundPageTitle": {
+    "en": "Something is not right...",
+    "ar": "هناك خطأ ما..."
+  },
+  "notFoundPageDescription": {
+    "en": "Page you are trying to open does not exist. You may have mistyped the address, or the page has been moved to another URL. If you think this is an error contact support.",
+    "ar": "الصفحة التي تحاول فتحها غير موجودة. ربما أدخلت عنواناً خاطئاً، أو تم نقل الصفحة إلى عنوان آخر. إذا كنت تعتقد أن هذا خطأ، من فضلك تواصل مع الدعم الفني."
+  },
+  "goBackHome": {
+    "en": "Get back to home page",
+    "ar": "العودة إلى الصفحة الرئيسية"
   },
   "products": {
     "en": "Products",

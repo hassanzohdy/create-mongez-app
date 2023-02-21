@@ -1,3 +1,4 @@
+import { RunTimeDriver } from "@mongez/cache";
 import Endpoint, { setCurrentEndpoint } from "@mongez/http";
 import { navigateTo } from "@mongez/react-router";
 import user from "apps/front-office/account/user";
@@ -8,6 +9,11 @@ import { apiBaseUrl, apiKey, apiOS } from "./flags";
 const endpoint = new Endpoint({
   putToPost: true,
   baseURL: apiBaseUrl + "/admin",
+  cache: true,
+  cacheOptions: {
+    driver: new RunTimeDriver(),
+    expiresAfter: 60 * 60 * 24 * 7, // 1 week, but because it is a runtime driver, it will be cleared when the page is refreshed
+  },
   setAuthorizationHeader: () => {
     if (user.isLoggedIn()) {
       return `Bearer ${user.getAccessToken()}`;
@@ -35,9 +41,13 @@ endpointEvents.onSuccess((response: AxiosResponse) => {
 });
 
 endpointEvents.onError(response => {
+  if (response.data?.data) {
+    response.data = response.data.data;
+  }
+
   if (response.status === 401) {
     user.logout();
-    navigateTo(URLS.login);
+    navigateTo(URLS.auth.login);
   }
 });
 

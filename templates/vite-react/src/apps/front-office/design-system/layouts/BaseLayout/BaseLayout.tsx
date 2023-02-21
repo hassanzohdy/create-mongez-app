@@ -1,4 +1,4 @@
-import { BasicComponentProps } from "apps/front-office/utils/types";
+import { BasicComponentProps } from "@mongez/moonlight";
 import Footer from "../Footer";
 import Header from "../Header";
 

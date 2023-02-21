@@ -1,0 +1,185 @@
+import { trans } from "@mongez/localization";
+import { catchError, toastError, toastSuccess } from "@mongez/moonlight";
+import { FormInterface } from "@mongez/react-form";
+import router, {
+  navigateBack,
+  navigateTo,
+  refresh,
+} from "@mongez/react-router";
+import parseError from "apps/front-office/utils/parse-error";
+import URLS from "apps/front-office/utils/urls";
+import { resetPasswordAtom } from "../atoms";
+import {
+  forgetPassword,
+  login,
+  register,
+  resetPassword,
+  verifyCode,
+  verifyForgetPassword,
+} from "../service/auth";
+import user from "../user";
+
+const goBack = () => {
+  setTimeout(() => {
+    if (!Object.values(URLS.auth).includes(router.getPreviousRoute())) {
+      navigateBack();
+    } else {
+      navigateTo(URLS.home);
+    }
+  }, 0);
+};
+
+const onSuccessLogin = () => {
+  goBack();
+  toastSuccess(trans("successfullyLoggedIn"));
+};
+
+const onError = catchError;
+
+/**
+ * Login hook
+ * It return the onSubmit callback
+ */
+export function useLogin() {
+  const loginSubmit = (e: React.FormEvent, form: FormInterface) => {
+    login(e.target)
+      .then(onSuccessLogin)
+      .catch(error => {
+        toastError(parseError(error));
+        form.submitting(false);
+      });
+  };
+
+  return loginSubmit;
+}
+
+/**
+ * Create account/Register hook
+ * It return the onSubmit callback
+ */
+export function useCreateAccount() {
+  const createAccount = (e: React.FormEvent, form: FormInterface) => {
+    register(e.target)
+      .then(() => {
+        toastSuccess(trans("successfullyCreatedAccount"));
+        goBack();
+      })
+      .catch(error => {
+        onError(error);
+        form.submitting(false);
+      });
+  };
+
+  return createAccount;
+}
+
+/**
+ * Verify register code hook
+ * Use this hook to verify user account after registration
+ */
+export function useCreateAccountVerifyCode() {
+  const verifyCodeSubmit = (e: React.FormEvent, form: FormInterface) => {
+    verifyCode(e.target)
+      .then(() => {
+        onSuccessLogin();
+      })
+      .catch(error => {
+        onError(error);
+        form.submitting(false);
+      });
+  };
+
+  return verifyCodeSubmit;
+}
+
+/**
+ * Perform logout
+ */
+export function useLogout(hardReload = true) {
+  return () => {
+    user.logout();
+    toastSuccess(trans("loggedOutSuccessfully"));
+
+    setTimeout(() => {
+      if (hardReload) {
+        window.location.reload();
+      } else {
+        refresh();
+      }
+    }, 0);
+  };
+}
+
+/**
+ * Send forget password request hook
+ */
+export function useForgetPassword() {
+  const forgetPasswordSubmit = (e: React.FormEvent, form: FormInterface) => {
+    forgetPassword(e.target)
+      .then(() => {
+        resetPasswordAtom.update({
+          ...resetPasswordAtom.value,
+          // use only the email or phone number
+          email: form.value("email"),
+          phoneNumber: form.value("phoneNumber"),
+        });
+
+        setTimeout(() => {
+          navigateTo(URLS.auth.verifyForgetPassword);
+        }, 10);
+      })
+      .catch(error => {
+        onError(error);
+        form.submitting(false);
+      });
+  };
+
+  return forgetPasswordSubmit;
+}
+
+/**
+ * Verify forget password code hook
+ */
+export function useVerifyForgetPasswordOTP() {
+  const verifyForgetPasswordOTPSubmit = (
+    e: React.FormEvent,
+    form: FormInterface,
+  ) => {
+    verifyForgetPassword({
+      email: resetPasswordAtom.get("email"),
+      phoneNumber: resetPasswordAtom.get("phoneNumber"),
+      code: resetPasswordAtom.get("tempOTP"),
+    })
+      .then(() => {
+        resetPasswordAtom.change("code", resetPasswordAtom.get("tempOTP"));
+
+        navigateTo(URLS.auth.resetPassword);
+      })
+      .catch(error => {
+        onError(error);
+        form.submitting(false);
+      });
+  };
+
+  return verifyForgetPasswordOTPSubmit;
+}
+
+/**
+ * Reset password hook
+ */
+export function useResetPassword() {
+  const resetPasswordSubmit = (e: React.FormEvent, form: FormInterface) => {
+    resetPassword(e.target)
+      .then(() => {
+        toastSuccess(trans("resetPasswordSuccess"));
+        navigateTo(URLS.auth.login);
+        resetPasswordAtom.reset();
+      })
+      .catch(error => {
+        onError(error);
+        form.submitting(false);
+      });
+  };
+
+  return resetPasswordSubmit;
+}

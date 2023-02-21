@@ -1,3 +1,5 @@
+import { ReactComponent as Logo } from "assets/images/moonlight.svg";
+
 export const __DEV__ = import.meta.env.MODE === "development";
 export const defaultLocaleCode = import.meta.env.APP_DEFAULT_LOCALE_CODE;
 export const fallbackLocaleCode = import.meta.env.APP_DEFAULT_LOCALE_CODE;
@@ -8,3 +10,9 @@ export const apiOS = import.meta.env.APP_API_OS;
 export const appVersion = import.meta.env.APP_VERSION;
 export const apiBaseUrl = import.meta.env.APP_API_URL;
 export const apiKey = import.meta.env.APP_API_KEY;
+export const googleMapApiKey = import.meta.env.GOOGLE_MAP_API_KEY;
+export const facebookAppId = import.meta.env.FACEBOOK_APP_ID;
+export const facebookAppVersion = import.meta.env.FACEBOOK_APP_VERSION;
+export const googleClientId = import.meta.env.GOOGLE_CLIENT_ID;
+
+export { Logo };
