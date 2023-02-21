@@ -27,12 +27,6 @@ export default async function createReactApp({
   appName,
   appPath,
 }: Required<Application>) {
-  // replace _.gitignore to
-  renameFile(
-    path.resolve(appPath, "_.gitignore"),
-    path.resolve(appPath, ".gitignore")
-  );
-
   print(colors.yellow(`Crafting ${colors.cyan(appName)}`));
 
   print(colors.cyan("Building Project Structure"));
@@ -81,6 +75,12 @@ export default async function createReactApp({
   putFile(path.resolve(appPath, ".env.production"), dotEnvProduction);
 
   print(colors.magenta("Initializing Git Repository"));
+
+  // replace _.gitignore to
+  renameFile(
+    path.resolve(appPath, "_.gitignore"),
+    path.resolve(appPath, ".gitignore")
+  );
 
   // initialize git repository
   exec(`git init`, {
