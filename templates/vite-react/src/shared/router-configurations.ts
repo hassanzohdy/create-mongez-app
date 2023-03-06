@@ -1,4 +1,7 @@
-import { RouterConfigurations } from "@mongez/react-router";
+import {
+  RouterConfigurations,
+  setRouterConfigurations,
+} from "@mongez/react-router";
 import URLS from "apps/front-office/utils/urls";
 import React from "react";
 import { productionBasePath } from "./flags";
@@ -33,4 +36,4 @@ const routerConfigurations: RouterConfigurations = {
   ),
 };
 
-export default routerConfigurations;
+setRouterConfigurations(routerConfigurations);

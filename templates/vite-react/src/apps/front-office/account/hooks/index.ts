@@ -41,8 +41,8 @@ const onError = catchError;
  * It return the onSubmit callback
  */
 export function useLogin() {
-  const loginSubmit = (e: React.FormEvent, form: FormInterface) => {
-    login(e.target)
+  const loginSubmit = ({ values, form }) => {
+    login(values)
       .then(onSuccessLogin)
       .catch(error => {
         toastError(parseError(error));
@@ -58,8 +58,8 @@ export function useLogin() {
  * It return the onSubmit callback
  */
 export function useCreateAccount() {
-  const createAccount = (e: React.FormEvent, form: FormInterface) => {
-    register(e.target)
+  const createAccount = ({ values, form }) => {
+    register(values)
       .then(() => {
         toastSuccess(trans("successfullyCreatedAccount"));
         goBack();
@@ -78,8 +78,8 @@ export function useCreateAccount() {
  * Use this hook to verify user account after registration
  */
 export function useCreateAccountVerifyCode() {
-  const verifyCodeSubmit = (e: React.FormEvent, form: FormInterface) => {
-    verifyCode(e.target)
+  const verifyCodeSubmit = ({ values, form }) => {
+    verifyCode(values)
       .then(() => {
         onSuccessLogin();
       })
@@ -114,8 +114,8 @@ export function useLogout(hardReload = true) {
  * Send forget password request hook
  */
 export function useForgetPassword() {
-  const forgetPasswordSubmit = (e: React.FormEvent, form: FormInterface) => {
-    forgetPassword(e.target)
+  const forgetPasswordSubmit = ({ values, form }) => {
+    forgetPassword(values)
       .then(() => {
         resetPasswordAtom.update({
           ...resetPasswordAtom.value,
@@ -168,8 +168,8 @@ export function useVerifyForgetPasswordOTP() {
  * Reset password hook
  */
 export function useResetPassword() {
-  const resetPasswordSubmit = (e: React.FormEvent, form: FormInterface) => {
-    resetPassword(e.target)
+  const resetPasswordSubmit = ({ values, form }) => {
+    resetPassword(values)
       .then(() => {
         toastSuccess(trans("resetPasswordSuccess"));
         navigateTo(URLS.auth.login);
