@@ -1,3 +1,5 @@
+import { currentLocaleCode } from "@mongez/moonlight";
+
 export const theme = {
   colors: {
     red: {
@@ -25,3 +27,7 @@ export const theme = {
     },
   },
 };
+
+export function getPrimaryFont() {
+  return theme.fontFamily[currentLocaleCode()].primary;
+}

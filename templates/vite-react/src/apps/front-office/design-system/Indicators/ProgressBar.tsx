@@ -1,5 +1,6 @@
-import { Progress } from "@mongez/react-components";
-
+/**
+ * Progress bar is used for lazy loading for modules
+ */
 export default function ProgressBar(props: any) {
-  return <Progress {...props} />;
+  return <></>;
 }

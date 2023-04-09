@@ -8,7 +8,7 @@ export default defineConfig(() => {
   return {
     plugins: [
       svgr({
-        exportAsDefault: false,
+        exportAsDefault: true,
       }),
       mongezVite(),
       react(),

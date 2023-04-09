@@ -7,7 +7,7 @@ import {
 } from "@mantine/core";
 import { current } from "@mongez/react";
 import { changeLocaleCode } from "@mongez/react-router";
-import { IconChevronDown } from "@tabler/icons";
+import { IconChevronDown } from "@tabler/icons-react";
 import arabic from "assets/images/flags/sa.png";
 import english from "assets/images/flags/uke.png";
 import { useState } from "react";

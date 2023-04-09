@@ -503,10 +503,6 @@
     "en": "Account Settings",
     "ar": "إعدادات الحساب"
   },
-  "createItem": {
-    "en": "Create new %s",
-    "ar": "إضافة %s جديد"
-  },
   "saveReset": {
     "en": "Save & Clear",
     "ar": "حفظ  و استعادة"
@@ -563,14 +559,6 @@
     "en": "Mobile Campaigns",
     "ar": "الحملات الجوالية"
   },
-  "updateItem": {
-    "en": "Update %s",
-    "ar": "تعديل بيانات %s"
-  },
-  "deleteItem": {
-    "en": "Delete %s",
-    "ar": "حذف %s"
-  },
   "title": {
     "en": "Title",
     "ar": "العنوان"
@@ -580,12 +568,12 @@
     "ar": "المحتوى"
   },
   "listItem": {
-    "en": "List %s",
-    "ar": "عرض %s"
+    "en": "List :item",
+    "ar": "عرض :item"
   },
   "viewItem": {
-    "en": "View %s",
-    "ar": "عرض %s"
+    "en": "View :item",
+    "ar": "عرض :item"
   },
   "permissionsList": {
     "en": "Permissions List",
@@ -1067,10 +1055,6 @@
     "en": "Cancel",
     "ar": "إلفاء"
   },
-  "deleteSuccess": {
-    "en": "Records Have Been Deleted Successfully",
-    "ar": "تم حذف السجلات بنجاح"
-  },
   "loggedOutSuccess": {
     "en": "You Have Been Logged Out Successfully",
     "ar": "تم تسجيل الخروج بنجاح"
@@ -1114,10 +1098,6 @@
   "confirmDeleteHeading": {
     "en": "Delete Confirm",
     "ar": "تأكيد الحذف"
-  },
-  "confirmDelete": {
-    "en": "Are you sure you want to delete %d records?",
-    "ar": "ه ل أنت متأكد من أ،ك تريد حذف هذه %d سجلات؟"
   },
   "remove": {
     "en": "Remove",
@@ -1383,17 +1363,9 @@
     "en": "Error!",
     "ar": "خطأ!"
   },
-  "accessDenied": {
-    "en": "Access Denied!",
-    "ar": "غير مصرح لك بدخول هذه الصفحة!"
-  },
   "accessDeniedReason": {
     "en": "Make sure you have full access to this page. If you are not sure, please contact your administrator.",
     "ar": "تأكد من انك تملك صلاحيات كاملة لهذه الصفحة. إذا لم تكن متأكداً، من فضلك تواصل مع مدير النظام."
-  },
-  "notFoundPage": {
-    "en": "Not Found Page",
-    "ar": "الصفحة المطلوبة غير موجودة"
   },
   "notFoundPageTitle": {
     "en": "Something is not right...",
@@ -2506,5 +2478,217 @@
   "sports": {
     "en": "Sports",
     "ar": "الرياضة"
+  },
+  "updateItem": {
+    "en": "Update :item",
+    "ar": "تحديث بيانات :item"
+  },
+  "metaTitleHint": {
+    "en": "If not set, it will be taken from the name field",
+    "ar": "إذا لم يتم تعيينه، سيتم الحصول عليه من حقل الاسم"
+  },
+  "metaDescriptionHint": {
+    "en": "If not set, it will be taken from the short description field",
+    "ar": "إذا لم يتم تعيينه، سيتم الحصول عليه من حقل الوصف المختصر"
+  },
+  "metaKeywordsHint": {
+    "en": "If not set, it will be taken from the name field, separate each keyword with a comma",
+    "ar": "إذا لم يتم تعيينه، سيتم الحصول عليه من حقل الاسم، افصل كل كلمة مفتاحية بفاصلة"
+  },
+  "keywords": {
+    "en": "Keywords",
+    "ar": "الكلمات الدليلية"
+  },
+  "property": {
+    "en": "Property",
+    "ar": "وحدة"
+  },
+  "createItem": {
+    "en": "Create new :item",
+    "ar": "إنشاء :item جديد"
+  },
+  "noData": {
+    "en": "No data found",
+    "ar": "لا يوجد بيانات"
+  },
+  "deleteBulk": {
+    "en": "Delete (:count)",
+    "ar": "حذف (:count)"
+  },
+  "confirmBulkRows": {
+    "en": "Are you sure you want to delete (:count) selected rows?",
+    "ar": "هل أنت متأكد من حذف (:count) الصفوف المحددة؟"
+  },
+  "bulkDeleteHeading": {
+    "en": "Bulk Delete Confirm",
+    "ar": "تأكيد حذف متعدد"
+  },
+  "cancelDelete": {
+    "en": "No don't delete it",
+    "ar": "لا، لا تحذفه"
+  },
+  "confirmDelete": {
+    "en": "Yes, delete it",
+    "ar": "تأكيد الحذف"
+  },
+  "singleDeleteHeading": {
+    "en": "Delete Confirm",
+    "ar": "تأكيد الحذف"
+  },
+  "deleting": {
+    "en": "Deleting...",
+    "ar": "جاري الحذف..."
+  },
+  "deletingInProgress": {
+    "en": "Deleting in progress...",
+    "ar": "جاري الحذف..."
+  },
+  "success": {
+    "en": "Success",
+    "ar": "تمت العملية بنجاح"
+  },
+  "deleteSuccess": {
+    "en": "Delete Operation has been done successfully",
+    "ar": "تمت عملية الحذف بنجاح"
+  },
+  "deleteError": {
+    "en": "Error while deleting",
+    "ar": "حدث خطأ أثناء الحذف"
+  },
+  "group": {
+    "en": "Group",
+    "ar": "مجموعة"
+  },
+  "isAdmin": {
+    "en": "Is Admin",
+    "ar": "مدير"
+  },
+  "isOwner": {
+    "en": "Is Owner",
+    "ar": "مالك"
+  },
+  "isAgent": {
+    "en": "Is Agent",
+    "ar": "وكيل"
+  },
+  "isDeveloper": {
+    "en": "Is Developer",
+    "ar": "مطور"
+  },
+  "deleteItem": {
+    "en": "Delete :item",
+    "ar": "حذف :item"
+  },
+  "confirmInput": {
+    "en": "Confirm :input",
+    "ar": "تأكيد :input"
+  },
+  "phonNumber": {
+    "en": "Phone Number",
+    "ar": "رقم الهاتف"
+  },
+  "confirmDeleteMessage": {
+    "en": "Are you sure you want to delete this record? This action is destructive and can not be restored.",
+    "ar": "هل أنت متأكد من أنك تريد حذف هذا السجل؟ هذا الإجراء غير قابل للتراجع عنه ولا يمكن إعادته."
+  },
+  "backToLogin": {
+    "en": "Back To Login",
+    "ar": "الرجوع لصفحة تسجيل الدخول"
+  },
+  "direction": {
+    "en": "Direction",
+    "ar": "الإتجاه"
+  },
+  "theme": {
+    "en": "Theme",
+    "ar": "التصميم"
+  },
+  "light": {
+    "en": "Light",
+    "ar": "فاتح"
+  },
+  "dark": {
+    "en": "Dark",
+    "ar": "داكن"
+  },
+  "enterEmail": {
+    "en": "Enter your Phone Number Or Email",
+    "ar": "ادخل البريد الالكتروني او رقم الهاتف"
+  },
+  "AccountSettings": {
+    "en": "Account Settings",
+    "ar": "إعدادات الحسآب"
+  },
+  "ChangeAccount": {
+    "en": "Change Account",
+    "ar": "تغيير الحسآب"
+  },
+  "logoutSuccessMessage": {
+    "en": "You have been logged out successfully",
+    "ar": "لقد تم تسجيل الخروج بنجاح"
+  },
+  "language": {
+    "en": "Language",
+    "ar": "اللغة"
+  },
+  "enterPass": {
+    "en": "Enter your password",
+    "ar": "ادخل كلمة المرور"
+  },
+  "analysis": {
+    "en": "Analysis",
+    "ar": "التحليلات"
+  },
+  "administrators": {
+    "en": "Administrators",
+    "ar": "المسؤولين"
+  },
+  "administrator": {
+    "en": "Administrator",
+    "ar": "المسؤول"
+  },
+  "accessDenied": {
+    "en": "Access Denied!",
+    "ar": "غير مصرح لك بدخول هذه الصفحة!"
+  },
+  "notFoundPage": {
+    "en": "Not Found Page",
+    "ar": "الصفحة المطلوبة غير موجودة"
+  },
+  "minimizeScreen": {
+    "en": "Minimize Screen",
+    "ar": "تصغير الشاشة"
+  },
+  "maximizeScreen": {
+    "en": "Maximize Screen",
+    "ar": "تكبير الشاشة"
+  },
+  "unreadMessages": {
+    "en": "Unread Messages",
+    "ar": "رسائل غير مقروءة"
+  },
+  "youHave": {
+    "en": "You have",
+    "ar": "لديك"
+  },
+  "clickOrDarg": {
+    "en": "Click Or darg and drop file to upload",
+    "ar": "اضغط او أسحب الملف"
+  },
+  "filtersOff": {
+    "en": "Filters Off",
+    "ar": "اخفاء الفلتر"
+  },
+  "filtersOn": {
+    "en": "Filters On",
+    "ar": "إظهار الفلتر"
+  },
+  "age": {
+    "en": "Age",
+    "ar": "عمر"
+  },
+  "copyRight": {
+    "en": "Copy Right Reversed",
+    "ar": "حقوق النشر محفوظة"
   }
 }

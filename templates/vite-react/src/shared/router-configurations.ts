@@ -1,12 +1,9 @@
-import {
-  RouterConfigurations,
-  setRouterConfigurations,
-} from "@mongez/react-router";
+import { RouterConfigurations } from "@mongez/react-router";
 import URLS from "apps/front-office/utils/urls";
 import React from "react";
 import { productionBasePath } from "./flags";
 
-const routerConfigurations: RouterConfigurations = {
+export const routerConfigurations: RouterConfigurations = {
   strictMode: true,
   basePath: productionBasePath,
   scrollToTop: "smooth",
@@ -31,9 +28,5 @@ const routerConfigurations: RouterConfigurations = {
     mode: "redirect",
     path: URLS.notFound,
   },
-  rootComponent: React.lazy(
-    () => import("apps/front-office/design-system/layouts/TopRoot"),
-  ),
+  rootComponent: React.lazy(() => import("apps/front-office/App")),
 };
-
-setRouterConfigurations(routerConfigurations);

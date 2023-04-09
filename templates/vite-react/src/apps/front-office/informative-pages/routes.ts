@@ -1,28 +1,25 @@
 import { publicRoutes } from "apps/front-office/utils/router";
 import URLS from "apps/front-office/utils/urls";
-import React from "react";
+import InformativePage from "./components/InformativePage/InformativePage";
+import AboutUsPage from "./components/PrimaryPages/AboutUsPage";
+import PrivacyPolicyPage from "./components/PrimaryPages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./components/PrimaryPages/TermsAndConditionsPage";
 
 publicRoutes([
   {
     path: URLS.pages.aboutUs,
-    component: React.lazy(
-      () => import("./components/PrimaryPages/AboutUsPage"),
-    ),
+    component: AboutUsPage,
   },
   {
     path: URLS.pages.termsConditions,
-    component: React.lazy(
-      () => import("./components/PrimaryPages/TermsAndConditionsPage"),
-    ),
+    component: TermsAndConditionsPage,
   },
   {
     path: URLS.pages.privacyPolicy,
-    component: React.lazy(
-      () => import("./components/PrimaryPages/PrivacyPolicyPage"),
-    ),
+    component: PrivacyPolicyPage,
   },
   {
     path: URLS.pages.viewRoute,
-    component: React.lazy(() => import("./components/InformativePage")),
+    component: InformativePage,
   },
 ]);

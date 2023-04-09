@@ -1,4 +1,5 @@
-import { ReactComponent as Logo } from "assets/images/moonlight.svg";
+import ImportedLogo from "assets/images/moonlight.svg";
+import React from "react";
 
 export const __DEV__ = import.meta.env.MODE === "development";
 export const defaultLocaleCode = import.meta.env.APP_DEFAULT_LOCALE_CODE;
@@ -14,5 +15,8 @@ export const googleMapApiKey = import.meta.env.GOOGLE_MAP_API_KEY;
 export const facebookAppId = import.meta.env.FACEBOOK_APP_ID;
 export const facebookAppVersion = import.meta.env.FACEBOOK_APP_VERSION;
 export const googleClientId = import.meta.env.GOOGLE_CLIENT_ID;
+
+// svg logo
+const Logo = ImportedLogo as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 
 export { Logo };

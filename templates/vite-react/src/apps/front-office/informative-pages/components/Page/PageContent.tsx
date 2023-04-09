@@ -3,7 +3,7 @@ import Helmet from "@mongez/react-helmet";
 import { Page } from "../../atoms";
 import { MainTitle, Text } from "./Page.styles";
 
-export default function Page({ page }: { page: Page }) {
+export default function PageContent({ page }: { page: Page }) {
   return (
     <>
       <Helmet title={page.title} />

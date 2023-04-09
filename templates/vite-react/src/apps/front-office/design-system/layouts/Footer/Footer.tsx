@@ -10,14 +10,14 @@ import {
   IconBrandInstagram,
   IconBrandTwitter,
   IconBrandYoutube,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import URLS from "apps/front-office/utils/urls";
 import { Logo } from "shared/flags";
 
 const useStyles = createStyles(theme => ({
   footer: {
-    marginTop: 120,
-    paddingTop: theme.spacing.xl * 2,
+    marginTop: 160,
+    paddingTop: theme.spacing.xl,
     paddingBottom: 0,
     backgroundColor:
       theme.colorScheme === "dark"
@@ -37,7 +37,7 @@ const useStyles = createStyles(theme => ({
       alignItems: "center",
     },
     svg: {
-      marginTop: "-2rem",
+      marginTop: "-6rem",
     },
   },
 
@@ -92,7 +92,7 @@ const useStyles = createStyles(theme => ({
     fontSize: theme.fontSizes.lg,
     fontWeight: 700,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    marginBottom: theme.spacing.xs / 2,
+    marginBottom: theme.spacing.xs,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
 

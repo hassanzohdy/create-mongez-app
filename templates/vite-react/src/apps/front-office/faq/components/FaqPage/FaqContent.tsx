@@ -1,5 +1,5 @@
 import { Accordion, Text } from "@mantine/core";
-import { IconPlus } from "@tabler/icons";
+import { IconPlus } from "@tabler/icons-react";
 import { faqAtom } from "../../atom/faqAtom";
 import { AccordionWrapper, FaqNumber, Question } from "./style";
 

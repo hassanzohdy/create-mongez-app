@@ -10,7 +10,7 @@ import {
 import { trans } from "@mongez/localization";
 import Helmet from "@mongez/react-helmet";
 import { Link } from "@mongez/react-router";
-import { IconNotes } from "@tabler/icons";
+import { IconNotes } from "@tabler/icons-react";
 import { mainTranslation } from "apps/front-office/utils/locales";
 import { Logo } from "shared/flags";
 
@@ -36,7 +36,7 @@ export default function HomePage() {
         <Logo height="250px" />
       </Text>
 
-      <Title size="h2" my="xl" align="center">
+      <Title size="h2" mt="md" mb="xl" align="center">
         Documentation
       </Title>
       <Container>
@@ -156,8 +156,8 @@ export default function HomePage() {
               <ActionIcon
                 mx="sm"
                 gradient={{
-                  from: "green",
-                  to: "teal",
+                  from: "teal.3",
+                  to: "indigo",
                 }}
                 variant="gradient">
                 <IconNotes />
@@ -212,8 +212,8 @@ export default function HomePage() {
               <ActionIcon
                 mx="sm"
                 gradient={{
-                  from: "teal.3",
-                  to: "indigo",
+                  from: "green",
+                  to: "teal",
                 }}
                 variant="gradient">
                 <IconNotes />

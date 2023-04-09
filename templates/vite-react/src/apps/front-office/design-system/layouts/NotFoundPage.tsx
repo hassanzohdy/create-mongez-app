@@ -2,7 +2,6 @@ import {
   Button,
   Container,
   createStyles,
-  Image,
   SimpleGrid,
   Text,
   Title,
@@ -12,7 +11,7 @@ import Helmet from "@mongez/react-helmet";
 import { Link } from "@mongez/react-router";
 import { mainTranslation } from "apps/front-office/utils/locales";
 import URLS from "apps/front-office/utils/urls";
-import image from "assets/images/404.svg";
+import Image from "assets/images/404.svg";
 
 const useStyles = createStyles(theme => ({
   root: {
@@ -50,7 +49,7 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-export default function NotFoundImage() {
+export default function NotFoundPage() {
   const { classes } = useStyles();
 
   return (
@@ -60,7 +59,7 @@ export default function NotFoundImage() {
         spacing={80}
         cols={2}
         breakpoints={[{ maxWidth: "sm", cols: 1, spacing: 40 }]}>
-        <Image src={image} className={classes.mobileImage} />
+        <Image className={classes.mobileImage} />
         <div>
           <Title className={classes.title}>
             {trans(mainTranslation.notFoundPageTitle)}
@@ -78,7 +77,7 @@ export default function NotFoundImage() {
             {trans(mainTranslation.goBackHome)}
           </Button>
         </div>
-        <Image src={image} className={classes.desktopImage} />
+        <Image className={classes.desktopImage} />
       </SimpleGrid>
     </Container>
   );

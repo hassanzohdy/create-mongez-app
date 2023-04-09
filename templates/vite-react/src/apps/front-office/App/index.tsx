@@ -3,19 +3,15 @@ import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import cache from "@mongez/cache";
 import { userPrefersDarkMode } from "@mongez/dom";
-import { catchError, InjectThemeAtom, ToastContainer } from "@mongez/moonlight";
+import { InjectThemeAtom, ToastContainer, catchError } from "@mongez/moonlight";
 import { useEvent, useOnce } from "@mongez/react-hooks";
 import { routerEvents } from "@mongez/react-router";
 import { getGuestToken, getMe } from "apps/front-office/account/service/auth";
 import user from "apps/front-office/account/user";
-import {
-  currentDirection,
-  currentLocaleCode,
-  isRTL,
-} from "apps/front-office/utils/helpers";
-import { useState } from "react";
-import ProgressBar from "../../Indicators/ProgressBar";
-import { theme } from "../../utils/theme";
+import { currentDirection, isRTL } from "apps/front-office/utils/helpers";
+import React, { useState } from "react";
+import { getPrimaryFont } from "../design-system";
+import ProgressBar from "../design-system/Indicators/ProgressBar";
 import { cacheLTR, cacheRTL, cacheValue } from "./LayoutSettings";
 
 const themeCacheKey = "theme-mode";
@@ -25,12 +21,17 @@ const defaultThemeValue = cache.get(
   userPrefersDarkMode() ? "dark" : "light",
 );
 
-export default function TopRoot({ children }: any) {
+export type AppProps = {
+  children: React.ReactNode;
+};
+
+export default function App({ children }: AppProps) {
   const [cacheProvider, setCacheProvider] = useState(cacheValue);
   const [colorScheme, setColorScheme] = useState<"dark" | "light">(
     defaultThemeValue,
   );
 
+  // if you're using hard reload, remove the following hook
   useEvent(() =>
     routerEvents.onLocaleChanging(localeCode => {
       setCacheProvider(localeCode === "ar" ? cacheRTL : cacheLTR);
@@ -39,9 +40,7 @@ export default function TopRoot({ children }: any) {
 
   const direction = currentDirection();
 
-  const localeCode = currentLocaleCode();
-
-  const primaryFontFamily = theme.fontFamily[localeCode].primary;
+  const primaryFontFamily = getPrimaryFont();
 
   return (
     <>
@@ -79,8 +78,9 @@ export default function TopRoot({ children }: any) {
  * If the project requires guest token to be loaded if the user is not logged in,
  * OR, if the project requires user data to be loaded if the user is logged in,
  * then Use this component instead of TopRoot
+ * Make this the default export instead of App
  */
-export function TopRootWithUser({ children }: any) {
+export function AppWithUser({ children }: any) {
   const [canPass, setCanPass] = useState(false);
 
   useOnce(() => {
@@ -106,5 +106,5 @@ export function TopRootWithUser({ children }: any) {
 
   if (!canPass) return <ProgressBar />;
 
-  return <TopRoot>{children}</TopRoot>;
+  return <App>{children}</App>;
 }

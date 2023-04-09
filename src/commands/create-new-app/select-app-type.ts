@@ -12,7 +12,7 @@ export default async function selectAppType() {
           {
             value: "react",
             name: chalk.cyanBright(
-              "React (Vite + Typescript + Moonlight + Mantine UI)"
+              "React VinoTine (Vite + Typescript + Moonlight + Mantine UI)"
             ),
           },
           {

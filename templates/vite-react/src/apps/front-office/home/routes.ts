@@ -1,16 +1,15 @@
 import { publicRoutes } from "apps/front-office/utils/router";
 import URLS from "apps/front-office/utils/urls";
-import React from "react";
+import NotFoundPage from "design-system/layouts/NotFoundPage";
+import HomePage from "./components/HomePage/HomePage";
 
 publicRoutes([
   {
     path: URLS.notFound,
-    component: React.lazy(
-      () => import("apps/front-office/design-system/layouts/NotFoundPage"),
-    ),
+    component: NotFoundPage,
   },
   {
     path: URLS.home,
-    component: React.lazy(() => import("./components/HomePage")),
+    component: HomePage,
   },
 ]);

@@ -1,26 +1,26 @@
 import {
   Anchor,
+  Header as BaseHeader,
   Box,
   Burger,
   Button,
   Center,
   Collapse,
   Container,
-  createStyles,
   Divider,
   Drawer,
   Group,
-  Header as BaseHeader,
   HoverCard,
   ScrollArea,
   SimpleGrid,
   Text,
   ThemeIcon,
   UnstyledButton,
+  createStyles,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { trans } from "@mongez/localization";
-import { Link, navigateTo } from "@mongez/react-router";
+import { Link } from "@mongez/react-router";
 import {
   IconBook,
   IconChartPie3,
@@ -29,9 +29,10 @@ import {
   IconCoin,
   IconFingerprint,
   IconNotification,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { mainTranslation } from "apps/front-office/utils/locales";
 import URLS from "apps/front-office/utils/urls";
+import { UnStyledLink } from "design-system/components/Link";
 import { Logo } from "shared/flags";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 import { LanguageSelector } from "./LanguageSelector";
@@ -62,7 +63,11 @@ const useStyles = createStyles(theme => ({
           : theme.colors.gray[0],
     }),
   },
-
+  logo: {
+    display: "flex",
+    width: "50px",
+    alignItems: "center",
+  },
   subLink: {
     width: "100%",
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
@@ -85,7 +90,7 @@ const useStyles = createStyles(theme => ({
         : theme.colors.gray[0],
     margin: -theme.spacing.md,
     marginTop: theme.spacing.sm,
-    padding: `${theme.spacing.md}px ${theme.spacing.md * 2}px`,
+    padding: `${theme.spacing.md}px ${theme.spacing.md}px`,
     paddingBottom: theme.spacing.xl,
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
@@ -141,6 +146,7 @@ const mockdata = [
 export default function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
+
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
 
@@ -164,15 +170,12 @@ export default function Header() {
 
   return (
     <Box>
-      <BaseHeader height={60} px="md">
+      <BaseHeader display="flex" height={60} px="md">
         <Container>
           <Group position="apart" sx={{ height: "100%" }}>
-            <Logo
-              onClick={() => navigateTo(URLS.home)}
-              style={{
-                maxHeight: "60px",
-              }}
-            />
+            <UnStyledLink className={classes.logo} href={URLS.home}>
+              <Logo />
+            </UnStyledLink>
 
             <Group
               sx={{ height: "100%" }}
