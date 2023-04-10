@@ -34,7 +34,7 @@ const appConfigurations: ApplicationConfigurations = {
   },
 };
 
-setAppConfigurations(appConfigurations);
-
 // router configurations
 setRouterConfigurations(routerConfigurations);
+
+setAppConfigurations(appConfigurations);

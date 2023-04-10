@@ -28,7 +28,7 @@
     "@mongez/http": "^2.2.3",
     "@mongez/localization": "^2.1.3",
     "@mongez/moonlight": "^1.1.10",
-    "@mongez/react": "^3.0.3",
+    "@mongez/react": "^3.0.6",
     "@mongez/react-atom": "^2.1.0",
     "@mongez/react-components": "^1.0.8",
     "@mongez/react-form": "^2.0.9",
