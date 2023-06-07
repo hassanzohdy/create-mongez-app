@@ -7,9 +7,9 @@ import { AxiosResponse } from "axios";
 import { apiBaseUrl, apiKey, apiOS } from "./flags";
 
 const endpoint = new Endpoint({
-  putToPost: true,
-  baseURL: apiBaseUrl + "/admin",
-  cache: true,
+  putToPost: false,
+  baseURL: apiBaseUrl,
+  cache: false,
   cacheOptions: {
     driver: new RunTimeDriver(),
     expiresAfter: 60 * 60 * 24 * 7, // 1 week, but because it is a runtime driver, it will be cleared when the page is refreshed
@@ -18,6 +18,8 @@ const endpoint = new Endpoint({
     if (user.isLoggedIn()) {
       return `Bearer ${user.getAccessToken()}`;
     }
+
+    if (!apiKey) return;
 
     return `key ${apiKey}`;
   },
