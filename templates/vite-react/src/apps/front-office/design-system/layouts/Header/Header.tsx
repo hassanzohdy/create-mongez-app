@@ -173,8 +173,8 @@ export default function Header() {
       <BaseHeader display="flex" height={60} px="md">
         <Container>
           <Group position="apart" sx={{ height: "100%" }}>
-            <UnStyledLink className={classes.logo} href={URLS.home}>
-              <Logo />
+            <UnStyledLink href={URLS.home}>
+              <Logo className={classes.logo} />
             </UnStyledLink>
 
             <Group

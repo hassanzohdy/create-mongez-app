@@ -175,8 +175,8 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container className={classes.inner}>
-        <div className={classes.logo}>
-          <Logo />
+        <div>
+          <Logo className={classes.logo} />
           <Text size="xs" color="dimmed" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
