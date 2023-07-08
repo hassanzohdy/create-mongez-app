@@ -1,5 +1,5 @@
 import { getFile, putFile } from "@mongez/fs";
-import phpPlugin from "@prettier/plugin-php";
+// import phpPlugin from "@prettier/plugin-php";
 import prettier from "prettier";
 
 export default function formatFile(filePath: string) {
@@ -8,7 +8,7 @@ export default function formatFile(filePath: string) {
 
 export function formatCode(code: string) {
   return prettier.format(code, {
-    plugins: [phpPlugin],
+    // plugins: [phpPlugin],
     parser: "php",
   });
 }
