@@ -10,7 +10,7 @@ export default async function createReactApp({
   appName,
   appPath,
 }: Required<Application>) {
-  const appType = await selectReactAppType();
+  const { type: appType } = await selectReactAppType();
 
   if (appType === "mantine") {
     return await createReactMantineMoonlightApp({ appName, appPath });

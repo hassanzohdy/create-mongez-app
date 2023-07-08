@@ -7,7 +7,7 @@ import {
   renameFile,
 } from "@mongez/fs";
 import * as path from "path";
-import { installCommand, startCommand } from "src/helpers/package-manager";
+import { installCommand, startCommand } from "./../../helpers/package-manager";
 import print, { colors } from "../../helpers/cli";
 import exec from "../../helpers/exec";
 import { packageRoot, template } from "../../helpers/paths";

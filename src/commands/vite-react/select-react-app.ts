@@ -1,8 +1,8 @@
 import inquirer from "inquirer";
 
-export default async function selectReactAppType(): Promise<
-  "basic" | "mantine"
-> {
+export default async function selectReactAppType(): Promise<{
+  type: "basic" | "mantine";
+}> {
   return new Promise((resolve) => {
     inquirer
       .prompt([
@@ -13,11 +13,11 @@ export default async function selectReactAppType(): Promise<
           choices: [
             {
               value: "basic",
-              name: "Headless UI (React + TS + Vite)",
+              name: "Headless UI (TS + Vite + Mongez)",
             },
             {
               value: "mantine",
-              name: "Mantine UI (React + TS + Vite + Mantine + Moonlight)",
+              name: "VinoTine (Vite + Typescript + Moonlight + Mantine UI + Mongez)",
             },
           ],
         },

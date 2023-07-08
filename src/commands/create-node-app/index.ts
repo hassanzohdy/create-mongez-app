@@ -1,6 +1,6 @@
 import { copy, getJson, putJson } from "@mongez/fs";
 import path from "path";
-import { installCommand, startCommand } from "src/helpers/package-manager";
+import { installCommand, startCommand } from "./../../helpers/package-manager";
 import { Application } from "../create-new-app/types";
 import print, { colors } from "./../../helpers/cli";
 import exec from "./../../helpers/exec";

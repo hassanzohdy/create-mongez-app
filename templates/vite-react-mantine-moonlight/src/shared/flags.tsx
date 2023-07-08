@@ -1,4 +1,4 @@
-import logo from "assets/images/moonlight.logo";
+import logo from "assets/images/moonlight.png";
 import React from "react";
 
 export const __DEV__ = import.meta.env.MODE === "development";

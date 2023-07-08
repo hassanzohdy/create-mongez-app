@@ -1,6 +1,6 @@
 import { copy } from "@mongez/fs";
 import chalk from "chalk";
-import { template } from "src/helpers/paths";
+import { template } from "./../../helpers/paths";
 import { Application } from "../create-new-app/types";
 import installDependencies from "./installDependencies";
 import laravelOptions from "./laravelOptions";

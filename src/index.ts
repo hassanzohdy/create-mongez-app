@@ -2,8 +2,8 @@ import { getJson } from "@mongez/fs";
 import { Command, program } from "commander";
 import * as path from "path";
 import { fileURLToPath } from "url";
-import createNewApp from "./commands/create-new-app";
 import print, { colors } from "./helpers/cli";
+import createNewApp from "./commands/create-new-app";
 
 const __filename = fileURLToPath(import.meta.url);
 

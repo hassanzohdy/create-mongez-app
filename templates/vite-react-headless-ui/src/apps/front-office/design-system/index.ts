@@ -1,5 +1,6 @@
 import { googleFont } from "@mongez/dom";
 import { current } from "@mongez/react";
+import "./main.css";
 
 if (current("localeCode") === "ar") {
   // load Cairo font from google

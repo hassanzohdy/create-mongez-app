@@ -1,3 +1,7 @@
 import createApp from "./src/index";
 
-createApp();
+export function main() {
+  createApp();
+}
+
+main();
