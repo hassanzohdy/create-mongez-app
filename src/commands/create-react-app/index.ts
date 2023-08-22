@@ -44,7 +44,7 @@ export default async function createReactApp({
 
   if (["scss", "all"].includes(options.styleType)) {
     for (const packageName of packagesOptions.scss) {
-      packageJson.dependencies[packageName] = packagesVersion[packageName];
+      packageJson.devDependencies[packageName] = packagesVersion[packageName];
     }
   }
 
