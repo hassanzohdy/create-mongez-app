@@ -1,10 +1,10 @@
 import { trans } from "@mongez/localization";
 import Helmet from "@mongez/react-helmet";
-import "./HomePage.css";
-import reactLogo from "assets/images/react.svg";
 import { Link } from "@mongez/react-router";
-import UpdateCounterButton from "./UpdateCounterButton";
+import reactLogo from "assets/images/react.svg";
 import DisplayCounter from "./DisplayCounter";
+import "./HomePage.scss";
+import UpdateCounterButton from "./UpdateCounterButton";
 
 export default function HomePage() {
   return (
