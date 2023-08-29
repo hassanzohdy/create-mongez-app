@@ -1,6 +1,6 @@
 {
     "name": "create-mongez-app",
-    "version": "3.0.8",
+    "version": "3.0.9",
     "main": "src/index.ts",
     "license": "MIT",
     "type": "module",
@@ -9,7 +9,7 @@
     },
     "scripts": {
         "start": "ts-node ./index.dev.ts",
-        "update": "ts-node version-checker.ts"
+        "update": "ts-node --esm version-checker.ts"
     },
     "dependencies": {
         "@mongez/fs": "^1.1.6",

@@ -4,6 +4,7 @@ import "./initial-config";
 // keep the previous line to be empty to ignore the import sort as `initial-config` must be imported first
 import { ApplicationConfigurations, setAppConfigurations } from "@mongez/react";
 import { setHelmetConfigurations } from "@mongez/react-helmet";
+import { jsxConverter } from "@mongez/react-localization";
 import { setRouterConfigurations } from "@mongez/react-router";
 import { localeCodesList } from "apps/front-office/utils/localization";
 import { defaultLocaleCode, fallbackLocaleCode } from "./flags";
@@ -23,6 +24,7 @@ const appConfigurations: ApplicationConfigurations = {
     defaultLocaleCode: defaultLocaleCode,
     fallback: fallbackLocaleCode,
     locales: localeCodesList,
+    converter: jsxConverter,
   },
 };
 
