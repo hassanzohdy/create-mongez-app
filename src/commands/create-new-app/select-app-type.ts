@@ -11,17 +11,11 @@ export default async function selectAppType() {
         choices: [
           {
             value: "react",
-            name: chalk.cyanBright(
-              "React Js CSR (Vite + Typescript + Mongez)"
-            ),
+            name: chalk.cyanBright("React Js"),
           },
           {
             value: "node",
-            name: chalk.green("Node Js (Typescript)"),
-          },
-          {
-            value: "laravel",
-            name: chalk.redBright("Laravel (MongoDB)"),
+            name: chalk.green("Node Js"),
           },
         ],
       },

@@ -11,7 +11,7 @@ import { confirmAction, multiSelect } from "./confirm-action";
 import exec from "./exec";
 import { installCommand, startCommand } from "./package-manager";
 import path from "path";
-import { packageRoot, template } from "./paths";
+import { Template, packageRoot, template } from "./paths";
 
 export async function initializeGitRepository(appPath: string) {
   if (
@@ -25,24 +25,12 @@ export async function initializeGitRepository(appPath: string) {
   // initialize git repository
   exec(`git init`, {
     cwd: appPath,
-    stdio: "inherit",
   });
 
   // switching to `main` branch
   exec(`git checkout -b main`, {
     cwd: appPath,
-    stdio: "inherit",
   });
-  // // adding all files to git and make a commit
-  // exec(`git add .`, {
-  //   cwd: appPath,
-  //   stdio: "inherit",
-  // });
-
-  // exec(`git commit -m Initial`, {
-  //   cwd: appPath,
-  //   stdio: "inherit",
-  // });
 }
 
 export async function installDependencies(appPath: string) {
@@ -96,7 +84,7 @@ export async function updateEnvFile(appPath: string, appName: string) {
 }
 
 export async function copyTemplateFiles(
-  templateName: string,
+  templateName: Template,
   appPath: string,
   appName: string
 ) {

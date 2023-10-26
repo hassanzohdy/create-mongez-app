@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@mongez/fs": "^3.0.1",
+    "@mongez/fs": "^3.0.4",
     "@mongez/node": "^1.0.1"
   },
   "scripts": {

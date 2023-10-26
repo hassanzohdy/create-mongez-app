@@ -1,6 +1,8 @@
 import inquirer from "inquirer";
 
-export default async function selectNodeAppConfigurations(): Promise<any[]> {
+export default async function selectNodeAppConfigurations(): Promise<
+  "warlock" | "basic"
+> {
   return new Promise((resolve) => {
     inquirer
       .prompt([
@@ -10,12 +12,18 @@ export default async function selectNodeAppConfigurations(): Promise<any[]> {
           message: "Please select your node app type?",
           choices: [
             {
+              value: "warlock",
+              name: "Warlock (Nodejs Framework With MongoDB)",
+            },
+            {
               value: "basic",
-              name: "Basic (Serverless With Hot Reload)",
+              name: "Serverless With Hot Reload",
             },
           ],
         },
       ])
-      .then(resolve);
+      .then(({ type }) => {
+        resolve(type);
+      });
   });
 }

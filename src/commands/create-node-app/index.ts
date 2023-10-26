@@ -1,46 +1,16 @@
-import { copy, getJson, putJson } from "@mongez/fs";
-import path from "path";
-import { installCommand, startCommand } from "./../../helpers/package-manager";
-import { Application } from "../create-new-app/types";
-import print, { colors } from "./../../helpers/cli";
-import exec from "./../../helpers/exec";
-import initializeGit from "./../../helpers/initializeGit";
-import { template } from "./../../helpers/paths";
+import { App } from "src/helpers/app";
 import selectNodeAppConfigurations from "./selectNodeAppConfigurations";
+import { createBasicNodeApp } from "src/commands/create-basic-node-app";
+import { createWarlockApp } from "src/commands/create-warlock-app";
 
-export default async function createNodeApp(appDetails: Application) {
-  const { appName, appPath } = appDetails;
+export default async function createNodeApp(appDetails: App) {
+  const appType = await selectNodeAppConfigurations();
 
-  appDetails.options = await selectNodeAppConfigurations();
+  if (appType === "basic") {
+    return createBasicNodeApp(appDetails);
+  }
 
-  print(colors.yellow(`Crafting ${colors.greenBright(appName)}`));
-
-  print(colors.cyan("Building Project Structure"));
-
-  // copy project files
-  copy(template("node"), appPath);
-
-  // update package.json file
-  const packageJson: any = getJson(path.resolve(appPath, "package.json"));
-
-  packageJson.name = appName;
-
-  putJson(path.resolve(appPath, "package.json"), packageJson);
-
-  print(colors.yellow("Installing The Project"));
-
-  exec(installCommand(), {
-    cwd: appPath,
-    stdio: "inherit",
-  });
-
-  initializeGit(appPath);
-
-  print(
-    colors.green(
-      "All done, now you're ready to go, type the following or copy/paste it to get started."
-    )
-  );
-
-  print(colors.cyan(`cd ${appName} && ${startCommand()}`));
+  if (appType === "warlock") {
+    return createWarlockApp(appDetails);
+  }
 }
