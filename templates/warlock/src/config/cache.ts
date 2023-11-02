@@ -9,5 +9,5 @@ cacheDriver?.setOptions({
   host: env("REDIS_HOST"),
   port: env("REDIS_PORT"),
   url: env("REDIS_URL"),
-  globalPrefix: "appName",
+  globalPrefix: env("REDIS_PREFIX"),
 });

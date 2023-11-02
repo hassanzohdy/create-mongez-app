@@ -1,12 +1,10 @@
+import { Random } from "@mongez/reinforcements";
 import { App } from "src/helpers/app";
 
 export async function createWarlockApp(application: App) {
   application.init().use("warlock").updatePackageJson().updateDotEnv();
 
-  application
-    .file("src/config/cache.ts")
-    .replace("appName", application.name)
-    .save();
+  application.env.replace("jwtSecretKey", Random.string(64)).save();
 
   await application.install();
 

@@ -6,20 +6,20 @@ import {
   guardedGuest,
   guardedGuestAdmin,
 } from "app/utils/router";
-import activateAccount from "./controllers/auth/activateAccount";
+import activateAccount from "./controllers/auth/activate-account";
 import adminLogin from "./controllers/auth/admin-login";
-import createAccount from "./controllers/auth/createAccount";
-import forgetPassword from "./controllers/auth/forgetPassword";
+import createAccount from "./controllers/auth/create-account";
+import forgetPassword from "./controllers/auth/forget-password";
 import login from "./controllers/auth/login";
 import logout from "./controllers/auth/logout";
-import resendActivationCode from "./controllers/auth/resendActivationCode";
-import resetPassword from "./controllers/auth/resetPassword";
+import resendActivationCode from "./controllers/auth/resend-activation-code";
+import resetPassword from "./controllers/auth/reset-password";
 import facebookLogin from "./controllers/auth/social/facebook-login";
 import { googleLogin } from "./controllers/auth/social/google-login";
 import verifyForgetPasswordCode from "./controllers/auth/verify-forget-password-code";
-import changePassword from "./controllers/profile/changePassword";
+import changePassword from "./controllers/profile/change-password";
 import myProfile from "./controllers/profile/my-profile";
-import updateProfile from "./controllers/profile/updateProfile";
+import updateProfile from "./controllers/profile/update-profile";
 import { restfulUsers } from "./controllers/restful-users";
 
 // guest login

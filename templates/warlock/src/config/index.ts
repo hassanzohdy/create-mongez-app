@@ -15,11 +15,11 @@ export const consoleLog = new ConsoleLog();
 
 export default function loadConfigurations() {
   config.set({
-    validation: validationConfigurations,
     app: appConfigurations,
     auth: authConfigurations,
-    http: httpConfigurations,
     cors: corsConfigurations,
+    http: httpConfigurations,
+    validation: validationConfigurations,
     uploads: uploadsConfigurations,
   });
 

@@ -1,5 +1,6 @@
 import { Guest } from "@mongez/warlock";
 import { User } from "app/users/models/user";
+import { env } from "@mongez/dotenv";
 
 const authConfigurations = {
   userType: {
@@ -7,7 +8,7 @@ const authConfigurations = {
     user: User,
   },
   jwt: {
-    secret: "secretKey",
+    secret: env("JWT_SECRET"),
   },
 };
 

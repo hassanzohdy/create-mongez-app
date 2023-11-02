@@ -1,4 +1,12 @@
-import { copy, getFile, getJsonFile, putFile, putJson } from "@mongez/fs";
+import {
+  copy,
+  fileExists,
+  getFile,
+  getJsonFile,
+  putFile,
+  putJson,
+  rename,
+} from "@mongez/fs";
 import path from "path";
 import { Application } from "src/commands/create-new-app/types";
 import print, { colors } from "src/helpers/cli";
@@ -14,6 +22,10 @@ export class App {
 
   public use(templateName: Template) {
     copy(template(templateName), this.path);
+
+    if (fileExists(this.path + "/.env.example")) {
+      rename(this.path + "/.env.example", this.path + "/.env");
+    }
 
     return this;
   }
@@ -52,6 +64,13 @@ export class App {
     this.file(".env").replace("appName", this.name).save();
 
     return this;
+  }
+
+  /**
+   * Get env file to update
+   */
+  public get env() {
+    return this.file(".env");
   }
 
   public get name() {
