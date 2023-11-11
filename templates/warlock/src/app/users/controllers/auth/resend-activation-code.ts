@@ -38,6 +38,6 @@ export default async function resendActivationCode(
 
 resendActivationCode.validation = {
   rules: {
-    email: ["required", "email", new ExistsRule(User.collection).insensitive()],
+    email: ["required", "email", new ExistsRule(User, 'email').insensitive()],
   },
 };

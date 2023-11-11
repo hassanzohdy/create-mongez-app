@@ -8,9 +8,9 @@ export async function createWarlockApp(application: App) {
 
   await application.install();
 
-  await application.exec("npx huskier-init");
-
   await application.git();
+
+  await application.exec("npx huskier-init");
 
   application.terminate();
 }

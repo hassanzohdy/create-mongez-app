@@ -28,6 +28,8 @@ forgetPassword.validation = {
   validate: async (request: Request, response: Response) => {
     const user = await User.first({
       email: request.input("email"),
+      // if the app requires an active account, uncomment the following line
+      // isActive: true,
     });
 
     if (!user) {

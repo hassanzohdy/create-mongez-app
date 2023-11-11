@@ -1,5 +1,5 @@
 import { installCommand, startCommand } from "./../../helpers/package-manager";
-import print, { colors } from "./../../helpers/cli";
+import { print, colors } from "./../../helpers/cli";
 import exec from "./../../helpers/exec";
 import initializeGit from "./../../helpers/initializeGit";
 import { App } from "src/helpers/app";

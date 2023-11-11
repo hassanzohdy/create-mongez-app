@@ -1,7 +1,7 @@
 import fs from "@mongez/fs";
 import axios from "axios";
 import chalk from "chalk";
-import print from "./src/helpers/cli";
+import { print } from "./src/helpers/cli";
 import { packageRoot } from "./src/helpers/paths";
 
 const packagesList = fs.getJson(packageRoot("files/packages-versions.json"));

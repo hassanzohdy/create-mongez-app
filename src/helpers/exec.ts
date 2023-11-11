@@ -1,6 +1,6 @@
 import childProcess from "cross-spawn";
-import print, { colors } from "./cli";
-// import print, { colors } from "./cli";
+import { print, colors } from "./cli";
+// import { print, colors } from "./cli";
 
 export default function exec(command: string, options: any = {}): any {
   const [commandName, ...optionsList] = command.split(" ");

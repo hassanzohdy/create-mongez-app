@@ -1,6 +1,6 @@
 import { renameFile } from "@mongez/fs";
 import path from "path";
-import print, { colors } from "./cli";
+import { print, colors } from "./cli";
 import exec from "./exec";
 
 export default function initializeGit(appPath: string) {

@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-export default function print(string: string): void {
+export function print(string: string): void {
   console.log(string);
 }
 

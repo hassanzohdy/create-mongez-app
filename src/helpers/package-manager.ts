@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 
 let detectedPackageManager: string | undefined;
 
-export default function getPackageManager() {
+export function getPackageManager() {
   // detect package manager by running an exec command
   // available package managers: npm, yarn, pnpm
   // check if package manager is installed globally

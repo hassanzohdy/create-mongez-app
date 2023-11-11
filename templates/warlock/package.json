@@ -17,7 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@mongez/encryption": "^1.0.4",
     "@mongez/fs": "^3.0.4",
-    "@mongez/monpulse": "^1.0.14",
+    "@mongez/monpulse": "^1.0.15",
     "@mongez/reinforcements": "^2.3.9",
     "@mongez/scheduler": "^1.0.0",
     "@mongez/sitemap": "^1.0.2",

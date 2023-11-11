@@ -9,7 +9,7 @@ import {
 } from "@mongez/fs";
 import path from "path";
 import { Application } from "src/commands/create-new-app/types";
-import print, { colors } from "src/helpers/cli";
+import { print, colors } from "src/helpers/cli";
 import exec from "src/helpers/exec";
 import { Template, template } from "src/helpers/paths";
 import {
@@ -23,6 +23,11 @@ export class App {
 
   public use(templateName: Template) {
     copy(template(templateName), this.path);
+
+    console.log(
+      this.path + "/.env.example",
+      fileExists(this.path + "/.env.example")
+    );
 
     if (fileExists(this.path + "/.env.example")) {
       rename(this.path + "/.env.example", this.path + "/.env");

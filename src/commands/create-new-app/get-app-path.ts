@@ -1,6 +1,6 @@
 import { isDirectory } from "@mongez/fs";
 import * as path from "path";
-import print, { colors } from "../../helpers/cli";
+import { print, colors } from "../../helpers/cli";
 
 export default function getAppPath(appName: string) {
   const appPath: string = path.resolve(process.cwd(), appName);
