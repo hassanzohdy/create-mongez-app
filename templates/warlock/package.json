@@ -8,22 +8,21 @@
     "prod": "warlock start",
     "prod:start": "yarn build && yarn prod",
     "serve": "yarn build && nohup warlock start &",
-    "update": "npx ncu -u -x chalk",
-    "lint": "npx eslint -c ./.eslintrc.json ./src",
-    "fix": "npx eslint --fix -c ./.eslintrc.json ./src",
-    "format": "npx prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
+    "update": "npx ncu -u",
+    "lint": "npx eslint --fix -c ./.eslintrc.json ./src --max-warnings=0",
+    "format": "npx prettier --write ./src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
     "tsc": "npx tsc --noEmit"
   },
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@mongez/encryption": "^1.0.4",
     "@mongez/fs": "^3.0.4",
-    "@mongez/monpulse": "^1.0.12",
+    "@mongez/monpulse": "^1.0.14",
     "@mongez/reinforcements": "^2.3.9",
     "@mongez/scheduler": "^1.0.0",
     "@mongez/sitemap": "^1.0.2",
     "@mongez/time-wizard": "^1.0.6",
-    "@mongez/warlock": "^1.1.13",
+    "@mongez/warlock": "^1.2.2",
     "dayjs": "^1.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -31,27 +30,27 @@
   "devDependencies": {
     "@emotion/react": "^11.11.1",
     "@mongez/huskier": "^1.0.7",
-    "@types/markdown-it": "^13.0.1",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "@types/markdown-it": "^13.0.6",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
-    "npm-check-updates": "^16.13.3",
-    "prettier": "^2.8.8",
-    "prettier-plugin-organize-imports": "^3.2.2",
+    "npm-check-updates": "^16.14.6",
+    "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.4",
     "typescript": "^5.2.2"
   },
   "huskier": {
     "hooks": {
-      "pre-commit": [],
-      "-": [
-        "yarn fix --max-warnings=0",
-        "npx tsc --noEmit"
+      "pre-commit": [
+        "yarn format",
+        "yarn lint",
+        "yarn tsc"
       ]
     }
   }

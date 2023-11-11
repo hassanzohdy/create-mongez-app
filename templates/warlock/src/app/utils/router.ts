@@ -87,6 +87,7 @@ export const guardedAdmin = (callback: any) => {
 
 /**
  * Public routes that doesn't require user to be logged in to access them.
+ * Just requires an access token.
  */
 export const publicRoutes = (callback: any) => {
   return router.group(

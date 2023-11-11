@@ -10,6 +10,14 @@ export const httpConfigurations: HttpConfigurations = {
     max: 260,
     duration: 60 * 1000, // 1 minute
   },
+  cors: {
+    // allowed origins
+    //   origin: ["127.0.0.1:5173", "localhost:5173"],
+    // origin: ["http://127.0.0.1:5173"],
+    origin: "*",
+    // allowed methods
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  },
   middleware: {
     // apply the middleware to all routes
     all: [],

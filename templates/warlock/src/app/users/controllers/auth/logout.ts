@@ -8,5 +8,7 @@ export default function logout(request: Request<User>, response: Response) {
 
   user.removeAccessToken(currentAccessToken);
 
+  delete request.user;
+
   return response.success();
 }

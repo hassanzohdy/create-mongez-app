@@ -9,15 +9,15 @@ import {
 import { adminPath, guarded } from "app/utils/router";
 
 guarded(() => {
-  // Delete file by hash from the database
-  router.delete(["/uploads/:hash", adminPath("/uploads/:hash")], deleteFile);
   // Upload files
   router.post(["/uploads", adminPath("/uploads")], uploadFiles);
   // Upload chunked files
   router.post(
     ["/uploads/chunks", adminPath("/uploads/chunks")],
-    uploadChunkedFiles,
+    uploadChunkedFiles
   );
+  // Delete file by hash from the database
+  router.delete(["/uploads/:hash", adminPath("/uploads/:hash")], deleteFile);
 });
 
 // Please note that the uploaded files should not be grouped in protected middleware i.e guarded with JWT

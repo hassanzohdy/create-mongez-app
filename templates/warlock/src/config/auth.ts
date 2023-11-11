@@ -1,8 +1,8 @@
-import { Guest } from "@mongez/warlock";
+import { AuthConfigurations, Guest } from "@mongez/warlock";
 import { User } from "app/users/models/user";
 import { env } from "@mongez/dotenv";
 
-const authConfigurations = {
+const authConfigurations: AuthConfigurations = {
   userType: {
     guest: Guest,
     user: User,

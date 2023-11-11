@@ -4,7 +4,6 @@ import { setDatabaseConfigurations } from "@mongez/monpulse";
 import { setMailConfigurations } from "@mongez/warlock";
 import { appConfigurations } from "./app";
 import authConfigurations from "./auth";
-import { corsConfigurations } from "./cors";
 import { databaseConfigurations } from "./database";
 import { httpConfigurations } from "./http";
 import { mailConfigurations } from "./mail";
@@ -17,7 +16,6 @@ export default function loadConfigurations() {
   config.set({
     app: appConfigurations,
     auth: authConfigurations,
-    cors: corsConfigurations,
     http: httpConfigurations,
     validation: validationConfigurations,
     uploads: uploadsConfigurations,

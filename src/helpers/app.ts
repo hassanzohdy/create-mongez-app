@@ -10,6 +10,7 @@ import {
 import path from "path";
 import { Application } from "src/commands/create-new-app/types";
 import print, { colors } from "src/helpers/cli";
+import exec from "src/helpers/exec";
 import { Template, template } from "src/helpers/paths";
 import {
   allDone,
@@ -46,6 +47,13 @@ export class App {
     await installDependencies(this.path);
 
     return this;
+  }
+
+  public async exec(command: string) {
+    return exec(command, {
+      cwd: this.path,
+      stdio: "inherit",
+    });
   }
 
   public async git() {
