@@ -8,9 +8,11 @@ export async function createWarlockApp(application: App) {
 
   await application.install();
 
-  await application.git();
+  const gitInstalled = await application.git();
 
-  await application.exec("npx huskier-init");
+  if (gitInstalled) {
+    await application.exec("npx huskier-init");
+  }
 
   application.terminate();
 }

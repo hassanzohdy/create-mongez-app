@@ -18,7 +18,7 @@ export async function initializeGitRepository(appPath: string) {
     (await confirmAction("Do you want to initialize a git repository?")) ===
     false
   )
-    return;
+    return false;
 
   console.log(colors.magenta("Initializing Git Repository"));
 
@@ -31,6 +31,8 @@ export async function initializeGitRepository(appPath: string) {
   exec(`git checkout -b main`, {
     cwd: appPath,
   });
+
+  return true;
 }
 
 export async function installDependencies(appPath: string) {

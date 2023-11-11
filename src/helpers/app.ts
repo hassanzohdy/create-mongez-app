@@ -19,6 +19,11 @@ import {
 } from "src/helpers/project-builder-helpers";
 
 export class App {
+  /**
+   * Resolved files
+   */
+  protected files: Record<string, FileManager> = {};
+
   public constructor(protected app: Application) {}
 
   public use(templateName: Template) {
@@ -62,15 +67,20 @@ export class App {
   }
 
   public async git() {
-    await initializeGitRepository(this.path);
+    return await initializeGitRepository(this.path);
+  }
+
+  public updatePackageJson() {
+    this.package.replace("name", this.name).save();
 
     return this;
   }
 
-  public updatePackageJson() {
-    this.json("package.json").replace("name", this.name).save();
-
-    return this;
+  /**
+   * Get package json file
+   */
+  public get package() {
+    return this.json("package.json");
   }
 
   public updateDotEnv() {
@@ -95,11 +105,23 @@ export class App {
   }
 
   public file(relativePath: string) {
-    return file(path.resolve(this.path, relativePath));
+    const fullPath = path.resolve(this.path, relativePath);
+
+    if (!this.files[fullPath]) {
+      this.files[fullPath] = file(fullPath);
+    }
+
+    return this.files[fullPath];
   }
 
   public json(relativePath: string) {
-    return jsonFile(path.resolve(this.path, relativePath));
+    const fullPath = path.resolve(this.path, relativePath);
+
+    if (!this.files[fullPath]) {
+      this.files[fullPath] = jsonFile(fullPath);
+    }
+
+    return this.files[fullPath];
   }
 }
 
@@ -139,6 +161,10 @@ export class JsonFileManager extends FileManager {
 
   public save() {
     putJson(this.filePath, this.content);
+  }
+
+  public has(key: string) {
+    return this.content[key] !== undefined;
   }
 
   public replace(key: string, value: any) {
