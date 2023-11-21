@@ -1,7 +1,7 @@
 import { env } from "@mongez/dotenv";
 import { HttpConfigurations } from "@mongez/warlock";
 
-export const httpConfigurations: HttpConfigurations = {
+const httpConfigurations: HttpConfigurations = {
   port: env("PORT", 3000),
   host: env("HOST", "localhost"),
   log: true,
@@ -23,6 +23,7 @@ export const httpConfigurations: HttpConfigurations = {
     all: [],
     // apply the middleware to specific routes
     only: {
+      // Example:
       // routes: [],
       // namedRoutes: ["users.list"],
       // middleware: [authMiddleware("user")],
@@ -38,3 +39,5 @@ export const httpConfigurations: HttpConfigurations = {
     },
   },
 };
+
+export default httpConfigurations;

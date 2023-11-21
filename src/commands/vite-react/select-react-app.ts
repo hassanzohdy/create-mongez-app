@@ -16,9 +16,13 @@ export default async function selectReactAppType(): Promise<{
               name: "Headless UI (TS + Vite + Mongez)",
             },
             {
-              value: "mantine",
-              name: "VinoTine (Vite + Typescript + Moonlight + Mantine UI + Mongez)",
+              value: "tailwind",
+              name: "Tailwind CSS (TS + Vite + Mongez)",
             },
+            // {
+            //   value: "mantine",
+            //   name: "VinoTine (Vite + Typescript + Moonlight + Mantine UI + Mongez)",
+            // },
           ],
         },
       ])

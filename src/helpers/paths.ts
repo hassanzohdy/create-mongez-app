@@ -5,7 +5,7 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-export type Template = "node" | "warlock" | "vite-react-headless-ui" | "vite-react-mantine-moonlight"
+export type Template = "node" | "warlock" | "vite-react-headless-ui" | "vite-react-tailwind-css" | "vite-react-mantine-moonlight"
 
 export function template(templateName: Template): string {
   return path.resolve(__dirname, "../", "../", "templates", templateName);

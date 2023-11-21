@@ -1,13 +1,42 @@
 import { env } from "@mongez/dotenv";
-import { redisCache } from "@mongez/warlock";
+import {
+  CacheConfigurations,
+  FileCacheDriver,
+  MemoryCacheDriver,
+  RedisCacheDriver,
+  requestContext,
+} from "@mongez/warlock";
 
-const cacheDriverName = env("CACHE_DRIVER", "redis");
+const cacheConfigurations: CacheConfigurations = {
+  drivers: {
+    file: FileCacheDriver,
+    memory: MemoryCacheDriver,
+    redis: RedisCacheDriver,
+  },
+  default: env("CACHE_DRIVER", "memory"),
+  options: {
+    redis: {
+      host: env("REDIS_HOST"),
+      port: env("REDIS_PORT"),
+      url: env("REDIS_URL"),
+      globalPrefix: () => {
+        const { request } = requestContext();
 
-export const cacheDriver = cacheDriverName === "redis" ? redisCache : undefined;
+        if (!request) return "store";
 
-cacheDriver?.setOptions({
-  host: env("REDIS_HOST"),
-  port: env("REDIS_PORT"),
-  url: env("REDIS_URL"),
-  globalPrefix: env("REDIS_PREFIX"),
-});
+        if (request.client) return `store.${request.client.id}`;
+
+        const domain =
+          request.originDomain ||
+          request.header("domain") ||
+          request.input("domain");
+
+        if (!domain) return "store";
+
+        return `store.` + domain;
+      },
+    },
+  },
+};
+
+export default cacheConfigurations;

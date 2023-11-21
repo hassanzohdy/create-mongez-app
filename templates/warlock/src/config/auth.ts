@@ -1,6 +1,5 @@
-import { AuthConfigurations, Guest } from "@mongez/warlock";
+import {Guest, AuthConfigurations } from "@mongez/warlock";
 import { User } from "app/users/models/user";
-import { env } from "@mongez/dotenv";
 
 const authConfigurations: AuthConfigurations = {
   userType: {
@@ -8,7 +7,7 @@ const authConfigurations: AuthConfigurations = {
     user: User,
   },
   jwt: {
-    secret: env("JWT_SECRET"),
+    secret: "secret",
   },
 };
 

@@ -1,3 +1,4 @@
+import { createTailwindReactApp } from "src/commands/vite-react/tailwind-css";
 import { Application } from "../create-new-app/types";
 import { createHeadlessUIReactApp } from "./headless-ui";
 import { createReactMantineMoonlightApp } from "./mantine";
@@ -12,9 +13,11 @@ export default async function createReactApp({
 }: Required<Application>) {
   const { type: appType } = await selectReactAppType();
 
-  if (appType === "mantine") {
-    return await createReactMantineMoonlightApp({ appName, appPath });
-  } else if (appType === "basic") {
+  if (appType === "basic") {
     return await createHeadlessUIReactApp({ appName, appPath });
+  } else if (appType === "mantine") {
+    return await createReactMantineMoonlightApp({ appName, appPath });
+  } else if (appType === "tailwind") {
+    return await createTailwindReactApp({ appName, appPath });
   }
 }

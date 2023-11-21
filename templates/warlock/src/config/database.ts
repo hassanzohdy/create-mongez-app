@@ -1,7 +1,7 @@
 import { env } from "@mongez/dotenv";
 import { DatabaseConfigurations } from "@mongez/monpulse";
 
-export const databaseConfigurations: DatabaseConfigurations = {
+const databaseConfigurations: DatabaseConfigurations = {
   host: env("DB_HOST", "localhost"),
   port: env("DB_PORT", 27017),
   username: env("DB_USERNAME"),
@@ -10,3 +10,5 @@ export const databaseConfigurations: DatabaseConfigurations = {
   dbAuth: env("DB_AUTH"),
   url: env("DB_URL"),
 };
+
+export default databaseConfigurations;
