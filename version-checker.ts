@@ -1,6 +1,6 @@
 import fs from "@mongez/fs";
 import axios from "axios";
-import chalk from "chalk";
+import { colors } from "@mongez/copper";
 import { print } from "./src/helpers/cli";
 import { packageRoot } from "./src/helpers/paths";
 
@@ -18,10 +18,10 @@ async function update() {
 
     if (currentVersion !== newVersion) {
       print(
-        chalk.yellow(
-          `${chalk.cyan(packageName)}: ${chalk.red(
+        colors.yellow(
+          `${colors.cyan(packageName)}: ${colors.red(
             currentVersion
-          )} => ${chalk.green(newVersion)}`
+          )} => ${colors.green(newVersion)}`
         )
       );
 
@@ -33,9 +33,9 @@ async function update() {
   if (hasUpdates) {
     fs.putJson("packages-versions.json", packagesList);
 
-    print(chalk.green("All packages versions updated successfully!"));
+    print(colors.green("All packages versions updated successfully!"));
   } else {
-    print(chalk.cyan("Nothing to update!, aborting.."));
+    print(colors.cyan("Nothing to update!, aborting.."));
   }
 }
 

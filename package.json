@@ -1,6 +1,6 @@
 {
     "name": "create-mongez-app",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "main": "src/index.ts",
     "license": "MIT",
     "type": "module",
@@ -12,14 +12,13 @@
         "update": "npx tsx version-checker.ts"
     },
     "dependencies": {
+        "@mongez/copper": "^1.0.1",
         "@mongez/fs": "^1.1.6",
         "@mongez/reinforcements": "^2.2.3",
-        "@types/chalk": "^2.2.0",
         "@types/cross-spawn": "^6.0.2",
         "@types/inquirer": "^9.0.3",
         "@types/node": "^18.11.9",
         "axios": "^1.1.3",
-        "chalk": "4",
         "commander": "^9.4.1",
         "cross-spawn": "^7.0.3",
         "inquirer": "^9",

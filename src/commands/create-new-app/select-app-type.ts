@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import { colors } from "@mongez/copper";
 import inquirer from "inquirer";
 
 export default async function selectAppType() {
@@ -11,11 +11,11 @@ export default async function selectAppType() {
         choices: [
           {
             value: "react",
-            name: chalk.cyanBright("React Js"),
+            name: colors.cyanBright("React Js"),
           },
           {
             value: "node",
-            name: chalk.green("Node Js"),
+            name: colors.green("Node Js"),
           },
         ],
       },
