@@ -1,4 +1,4 @@
-import { getJson } from "@mongez/fs";
+import { getJsonFile } from "@mongez/fs";
 import { Command, program } from "commander";
 import * as path from "path";
 import { fileURLToPath } from "url";
@@ -10,14 +10,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default function createApp() {
-  const packageJson: any = getJson(
+  const packageJson: any = getJsonFile(
     path.resolve(__dirname, "../", "package.json")
   );
 
   program.version(packageJson["version"]);
 
   print(
-    `Initializing Mongez Create App ${colors.greenBright.bold(
+    `Initializing Mongez Create App ${colors.greenBright(
       "V" + packageJson["version"]
     )}...`
   );

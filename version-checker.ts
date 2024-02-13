@@ -1,10 +1,10 @@
-import fs from "@mongez/fs";
+import { getJsonFile, putJsonFile } from "@mongez/fs";
 import axios from "axios";
 import { colors } from "@mongez/copper";
 import { print } from "./src/helpers/cli";
 import { packageRoot } from "./src/helpers/paths";
 
-const packagesList = fs.getJson(packageRoot("files/packages-versions.json"));
+const packagesList = getJsonFile(packageRoot("files/packages-versions.json"));
 
 const registry = "https://registry.npmjs.org/";
 
@@ -31,7 +31,7 @@ async function update() {
   }
 
   if (hasUpdates) {
-    fs.putJson("packages-versions.json", packagesList);
+    putJsonFile("packages-versions.json", packagesList);
 
     print(colors.green("All packages versions updated successfully!"));
   } else {
