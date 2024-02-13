@@ -4,8 +4,11 @@ import {
   FileCacheDriver,
   MemoryCacheDriver,
   RedisCacheDriver,
-  requestContext,
 } from "@mongez/warlock";
+
+const globalPrefix = () => {
+  return env("CACHE_PREFIX", env("APP_NAME", "warlock"));
+};
 
 const cacheConfigurations: CacheConfigurations = {
   drivers: {
@@ -15,26 +18,14 @@ const cacheConfigurations: CacheConfigurations = {
   },
   default: env("CACHE_DRIVER", "memory"),
   options: {
+    memory: {
+      globalPrefix,
+    },
     redis: {
       host: env("REDIS_HOST"),
       port: env("REDIS_PORT"),
       url: env("REDIS_URL"),
-      globalPrefix: () => {
-        const { request } = requestContext();
-
-        if (!request) return "store";
-
-        if (request.client) return `store.${request.client.id}`;
-
-        const domain =
-          request.originDomain ||
-          request.header("domain") ||
-          request.input("domain");
-
-        if (!domain) return "store";
-
-        return `store.` + domain;
-      },
+      globalPrefix,
     },
   },
 };

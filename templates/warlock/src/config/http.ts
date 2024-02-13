@@ -5,15 +5,14 @@ const httpConfigurations: HttpConfigurations = {
   port: env("PORT", 3000),
   host: env("HOST", "localhost"),
   log: true,
-  fileUploadLimit: 12 * 1024 * 1024 * 1024,
+  fileUploadLimit: 20 * 1024 * 1024, // 20MB
   rateLimit: {
-    max: 260,
+    max: 260, // max requests per duration (i.e minute)
     duration: 60 * 1000, // 1 minute
   },
   cors: {
     // allowed origins
-    //   origin: ["127.0.0.1:5173", "localhost:5173"],
-    // origin: ["http://127.0.0.1:5173"],
+    // origin: ["http://localhost"],
     origin: "*",
     // allowed methods
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
@@ -24,9 +23,6 @@ const httpConfigurations: HttpConfigurations = {
     // apply the middleware to specific routes
     only: {
       // Example:
-      // routes: [],
-      // namedRoutes: ["users.list"],
-      // middleware: [authMiddleware("user")],
       routes: [],
       namedRoutes: [],
       middleware: [],

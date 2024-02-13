@@ -5,7 +5,15 @@ export const consoleLog = new ConsoleLog();
 
 const logConfigurations: LogConfigurations = {
   enabled: true,
-  channels: [consoleLog],
+  development: {
+    channels: [consoleLog],
+  },
+  test: {
+    channels: [consoleLog],
+  },
+  production: {
+    channels: [consoleLog],
+  },
 };
 
 export default logConfigurations;
