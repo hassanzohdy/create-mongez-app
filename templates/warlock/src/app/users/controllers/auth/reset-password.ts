@@ -1,6 +1,5 @@
-import { ExistsRule, Request, Response } from "@mongez/warlock";
+import { ExistsRule, type Request, type Response } from "@mongez/warlock";
 import { User } from "app/users/models/user";
-import { validateUserForgetPasswordCode } from "app/users/validation/validate-user-forget-password-code";
 
 export default async function resetPassword(
   request: Request<User>,
@@ -23,7 +22,25 @@ resetPassword.validation = {
   rules: {
     email: ["required", "email", new ExistsRule(User, 'email').insensitive()],
     password: ["required", "confirmed", "minLength:8"],
-    code: ["required", "int"],
+    code: ["required", "int", 'length:6'],
   },
-  validate: validateUserForgetPasswordCode,
+  validate: async (
+    request: Request,
+    response: Response,
+  ) => {
+    try {
+      const user = await User.first({
+        email: request.input("email"),
+        activationCode: request.int("code"),
+      });
+  
+      if (!user) {
+        return response.notFound();
+      }
+  
+      request.user = user;
+    } catch (error: any) {
+      return response.badRequest(error.message);
+    }
+  }  
 };

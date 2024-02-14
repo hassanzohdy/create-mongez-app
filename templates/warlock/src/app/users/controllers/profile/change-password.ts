@@ -7,7 +7,7 @@ export default async function changePassword(
 ) {
   const user = request.user;
 
-  user.save({
+  await user.save({
     password: request.input("password"),
   });
 

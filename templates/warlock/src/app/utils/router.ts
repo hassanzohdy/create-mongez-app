@@ -1,5 +1,6 @@
 import {
-  Middleware,
+  type Middleware,
+  type RouterGroupCallback,
   authMiddleware,
   requestContext,
   router,
@@ -19,7 +20,7 @@ export const isAdminRequest = () => {
 /**
  * Add routes Group
  */
-const adminRoutes = (callback: any) => {
+const adminRoutes = (callback: RouterGroupCallback) => {
   return router.group(
     {
       prefix: "/admin",
@@ -32,7 +33,7 @@ const adminRoutes = (callback: any) => {
 /**
  * Register guarded routes that requires user to be logged in to access them.
  */
-export const guarded = (callback: any, moreMiddlewares: Middleware[] = []) => {
+export const guarded = (callback: RouterGroupCallback, moreMiddlewares: Middleware[] = []) => {
   return router.group(
     {
       name: "guarded.user",
@@ -45,7 +46,7 @@ export const guarded = (callback: any, moreMiddlewares: Middleware[] = []) => {
 /**
  * Only guests can access these routes.
  */
-export const guardedGuest = (callback: any) => {
+export const guardedGuest = (callback: RouterGroupCallback) => {
   return router.group(
     {
       name: "guarded.guest",
@@ -58,7 +59,7 @@ export const guardedGuest = (callback: any) => {
 /**
  * Guarded guest routes for admin
  */
-export const guardedGuestAdmin = (callback: any) => {
+export const guardedGuestAdmin = (callback: RouterGroupCallback) => {
   return adminRoutes(() => {
     router.group(
       {
@@ -73,7 +74,7 @@ export const guardedGuestAdmin = (callback: any) => {
 /**
  * Only admin can access these routes.
  */
-export const guardedAdmin = (callback: any) => {
+export const guardedAdmin = (callback: RouterGroupCallback) => {
   return adminRoutes(() => {
     router.group(
       {
@@ -89,7 +90,7 @@ export const guardedAdmin = (callback: any) => {
  * Public routes that doesn't require user to be logged in to access them.
  * Just requires an access token.
  */
-export const publicRoutes = (callback: any) => {
+export const publicRoutes = (callback: RouterGroupCallback) => {
   return router.group(
     {
       name: "public",

@@ -14,23 +14,12 @@ class RestfulUsers extends Restful<User> implements RouteResource {
   public validation: RouteResource["validation"] = {
     create: {
       rules: {
-        firstName: ["required", "min:2"],
-        lastName: ["required", "min:2"],
-        email: ["required", "email", new UniqueRule(User).except("id")],
-        phoneNumber: ["required", "phone", new UniqueRule(User).except("id")],
-        gender: ["in:male,female"],
+        name: ["required", "min:2"],
+        email: ["required", "email", new UniqueRule(User).exceptCurrentUser()],
+        phoneNumber: ["required", "phone", new UniqueRule(User).exceptCurrentUser()],
       },
     },
   };
-
-  /**
-   * {@inheritDoc}
-   */
-  public onSave(request: Request<User>, user?: User) {
-    if (request.user?.id === user?.id) {
-      request.user = user;
-    }
-  }
 }
 
 export const restfulUsers = new RestfulUsers();

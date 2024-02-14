@@ -1,7 +1,7 @@
 import { Aggregate, database } from "@mongez/monpulse";
 import { User } from "../models/user";
 
-User.events().onSaved(async user => {
+User.events().onSaved(async (user: User) => {
   // list all collections in the database
   const collections = await database.listCollectionNames();
 

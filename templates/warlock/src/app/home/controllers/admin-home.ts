@@ -1,4 +1,4 @@
-import { Request, Response } from "@mongez/warlock";
+import {type Request, type Response } from "@mongez/warlock";
 
 export default async function adminHome(request: Request, response: Response) {
   // your code here

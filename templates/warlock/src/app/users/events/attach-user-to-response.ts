@@ -1,8 +1,9 @@
 import { Response } from "@mongez/warlock";
 
 export function attachCurrentUserToResponse(response: Response) {
+  if (! response.isJson) return;
+  
   const responseData = response.body;
-  if (typeof responseData === "string") return;
 
   if (!responseData || responseData.user) return;
 

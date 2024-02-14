@@ -21,12 +21,8 @@ export class UsersRepository extends RepositoryManager<User> {
    * Filter By options
    */
   protected filterBy: FilterByOptions = this.withDefaultFilters({
-    isActive: "bool",
-    email: "like",
-    id: "int",
-    phoneNumber: "like",
-    gender: "=",
     name: "like",
+    isActive: "bool",
   });
 }
 

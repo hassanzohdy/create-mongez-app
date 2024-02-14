@@ -1,6 +1,5 @@
 import { Random } from "@mongez/reinforcements";
 import { ExistsRule, Request, Response } from "@mongez/warlock";
-import confirmRegistrationMail from "app/users/mail/confirmRegistrationMail";
 import { User } from "app/users/models/user";
 
 export default async function resendActivationCode(
@@ -29,7 +28,9 @@ export default async function resendActivationCode(
       activationCode: Random.int(100000, 999999),
       codeExpiresAt: true,
     })
-    .then(confirmRegistrationMail);
+    .then(() => {
+      // send mail
+    });
 
   return response.success({
     message: "Activation code sent",

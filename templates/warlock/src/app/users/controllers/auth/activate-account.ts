@@ -43,12 +43,6 @@ activateAccount.validation = {
       });
     }
 
-    // if (dayjs(user.get("codeExpiresAt")).isBefore(new Date())) {
-    //   return response.badRequest({
-    //     error: "Activation code has expired",
-    //   });
-    // }
-
     request.user = user;
   },
 };

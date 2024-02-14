@@ -1,6 +1,6 @@
 import { Random } from "@mongez/reinforcements";
-import { Request, Response } from "@mongez/warlock";
-import sendForgetPasswordEmail from "app/users/mail/sendForgetPasswordEmail";
+import { type Request, type Response, UniqueRule } from "@mongez/warlock";
+import sendForgetPasswordEmail from "app/users/mail/send-forget-password-email";
 import { User } from "app/users/models/user";
 
 export default async function forgetPassword(
@@ -16,14 +16,14 @@ export default async function forgetPassword(
     })
     .then(sendForgetPasswordEmail);
 
-  (request.user as any) = undefined;
+  request.user = undefined;
 
   return response.success();
 }
 
 forgetPassword.validation = {
   rules: {
-    email: ["required", "email"],
+    email: ["required", "email", new UniqueRule(User)],
   },
   validate: async (request: Request, response: Response) => {
     const user = await User.first({
