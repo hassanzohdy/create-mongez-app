@@ -1,9 +1,12 @@
-import { t, Request, Response } from "@mongez/warlock";
+import { Request, Response, t } from "@mongez/warlock";
 import confirmRegistrationMail from "app/users/mail/confirmRegistrationMail";
 import { Login } from "app/users/models/login";
 import { User } from "app/users/models/user";
 
-export default async function login(request: Request<User>, response: Response) {
+export default async function login(
+  request: Request<User>,
+  response: Response,
+) {
   const user: User = request.user;
 
   const auth = await user.generateAccessToken();
@@ -13,7 +16,7 @@ export default async function login(request: Request<User>, response: Response) 
   });
 
   Login.create({
-    user: user.only(['id', 'email', 'name']),
+    user: user.only(["id", "email", "name"]),
   }); // log logins
 
   return response.success({
@@ -45,7 +48,7 @@ login.validation = {
       confirmRegistrationMail(user);
       return response.forbidden({
         activateAccount: true,
-        error: t("auth.accountNotActivated")
+        error: t("auth.accountNotActivated"),
       });
     }
 

@@ -1,4 +1,4 @@
-import { Request, Restful, RouteResource, UniqueRule } from "@mongez/warlock";
+import { Restful, RouteResource, UniqueRule } from "@mongez/warlock";
 import { User } from "../models/user";
 import usersRepository from "../repositories/users-repository";
 
@@ -16,7 +16,11 @@ class RestfulUsers extends Restful<User> implements RouteResource {
       rules: {
         name: ["required", "min:2"],
         email: ["required", "email", new UniqueRule(User).exceptCurrentUser()],
-        phoneNumber: ["required", "phone", new UniqueRule(User).exceptCurrentUser()],
+        phoneNumber: [
+          "required",
+          "phone",
+          new UniqueRule(User).exceptCurrentUser(),
+        ],
       },
     },
   };

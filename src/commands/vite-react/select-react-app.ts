@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 export default async function selectReactAppType(): Promise<{
   type: "basic" | "mantine";
 }> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     inquirer
       .prompt([
         {

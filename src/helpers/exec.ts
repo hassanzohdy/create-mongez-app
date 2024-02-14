@@ -1,5 +1,5 @@
 import childProcess from "cross-spawn";
-import { print, colors } from "./cli";
+import { colors, print } from "./cli";
 // import { print, colors } from "./cli";
 
 export default function exec(command: string, options: any = {}): any {
@@ -7,10 +7,10 @@ export default function exec(command: string, options: any = {}): any {
 
   print(
     // `Executing command: ${colors.bold(
-    `${colors.bold(commandName + " " + optionsList.join(" "))}`
+    `${colors.bold(commandName + " " + optionsList.join(" "))}`,
   );
 
-  let commandOutput = childProcess.sync(commandName, optionsList, options);
+  const commandOutput = childProcess.sync(commandName, optionsList, options);
 
   // it means command didn't end as expected, then stop the rest of the program
   if (commandOutput.error !== null) {

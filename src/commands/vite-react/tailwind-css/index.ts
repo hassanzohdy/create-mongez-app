@@ -1,4 +1,3 @@
-import { Application } from "../../create-new-app/types";
 import {
   addStylesDependencies,
   allDone,
@@ -7,6 +6,7 @@ import {
   installDependencies,
   updateEnvFile,
 } from "../../../helpers/project-builder-helpers";
+import { Application } from "../../create-new-app/types";
 
 export async function createTailwindReactApp({
   appName,

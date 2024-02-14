@@ -1,5 +1,4 @@
 import logo from "assets/images/moonlight.png";
-import React from "react";
 
 export const __DEV__ = import.meta.env.MODE === "development";
 export const defaultLocaleCode = import.meta.env.APP_DEFAULT_LOCALE_CODE;

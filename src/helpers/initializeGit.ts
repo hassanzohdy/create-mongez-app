@@ -1,6 +1,6 @@
 import { renameFile } from "@mongez/fs";
 import path from "path";
-import { print, colors } from "./cli";
+import { colors, print } from "./cli";
 import exec from "./exec";
 
 export default function initializeGit(appPath: string) {
@@ -9,7 +9,7 @@ export default function initializeGit(appPath: string) {
   // replace _.gitignore to
   renameFile(
     path.resolve(appPath, "_.gitignore"),
-    path.resolve(appPath, ".gitignore")
+    path.resolve(appPath, ".gitignore"),
   );
 
   // initialize git repository

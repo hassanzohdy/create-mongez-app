@@ -1,5 +1,5 @@
 import { Random } from "@mongez/reinforcements";
-import { type Request, type Response, UniqueRule } from "@mongez/warlock";
+import { UniqueRule, type Request, type Response } from "@mongez/warlock";
 import sendForgetPasswordEmail from "app/users/mail/send-forget-password-email";
 import { User } from "app/users/models/user";
 

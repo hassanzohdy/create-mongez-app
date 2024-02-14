@@ -1,22 +1,22 @@
 import {
   Anchor,
-  Header as BaseHeader,
   Box,
   Burger,
   Button,
   Center,
   Collapse,
   Container,
+  createStyles,
   Divider,
   Drawer,
   Group,
+  Header as BaseHeader,
   HoverCard,
   ScrollArea,
   SimpleGrid,
   Text,
   ThemeIcon,
   UnstyledButton,
-  createStyles,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { trans } from "@mongez/localization";

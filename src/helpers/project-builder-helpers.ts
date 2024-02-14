@@ -6,12 +6,12 @@ import {
   putJson,
   renameFile,
 } from "@mongez/fs";
+import path from "path";
 import { colors } from "./cli";
 import { confirmAction, multiSelect } from "./confirm-action";
 import exec from "./exec";
 import { installCommand, startCommand } from "./package-manager";
-import path from "path";
-import { Template, packageRoot, template } from "./paths";
+import { packageRoot, Template, template } from "./paths";
 
 export async function initializeGitRepository(appPath: string) {
   if (
@@ -38,7 +38,7 @@ export async function initializeGitRepository(appPath: string) {
 export async function installDependencies(appPath: string) {
   if (
     (await confirmAction(
-      "Do you want to install the project dependencies?"
+      "Do you want to install the project dependencies?",
     )) === false
   )
     return;
@@ -65,8 +65,8 @@ export async function updateEnvFile(appPath: string, appName: string) {
       "AppCodeName",
       appName
         .split(/-|_/g)
-        .map((word) => word[0])
-        .join("")
+        .map(word => word[0])
+        .join(""),
     );
 
   putFile(path.resolve(appPath, ".env"), dotEnv);
@@ -78,8 +78,8 @@ export async function updateEnvFile(appPath: string, appName: string) {
     "AppCodeName",
     appName
       .split(/-|_/g)
-      .map((word) => word[0])
-      .join("")
+      .map(word => word[0])
+      .join(""),
   );
 
   putFile(path.resolve(appPath, ".env.shared"), dotEnvProduction);
@@ -88,7 +88,7 @@ export async function updateEnvFile(appPath: string, appName: string) {
 export async function copyTemplateFiles(
   templateName: Template,
   appPath: string,
-  appName: string
+  appName: string,
 ) {
   console.log(colors.yellow(`Crafting ${colors.cyan(appName)}...`));
 
@@ -100,23 +100,23 @@ export async function copyTemplateFiles(
   // replace _.gitignore to
   renameFile(
     path.resolve(appPath, "_.gitignore"),
-    path.resolve(appPath, ".gitignore")
+    path.resolve(appPath, ".gitignore"),
   );
 }
 
 export async function allDone(appName: string) {
   console.log(
     colors.green(
-      "All done, now you're ready to go, type the following or copy/paste it in the terminal to get started."
-    )
+      "All done, now you're ready to go, type the following or copy/paste it in the terminal to get started.",
+    ),
   );
 
   console.log(colors.cyan(`cd ${appName} && ${startCommand()}`));
 
   console.log(
     `If you are using VSCode, It's recommended to install the ${colors.yellow(
-      `Generator Z`
-    )} extension, it generates components with a right click.`
+      `Generator Z`,
+    )} extension, it generates components with a right click.`,
   );
 }
 
@@ -133,7 +133,7 @@ export async function addStylesDependencies(appPath: string) {
         value: "styled",
         name: "Styled Components (Emotion)",
       },
-    ]
+    ],
   )) as ("scss" | "styled")[];
 
   const packagesOptions = {

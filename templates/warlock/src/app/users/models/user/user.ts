@@ -1,11 +1,5 @@
-import {
-  castEmail,
-  Casts,
-  CustomCasts,
-  Document,
-  expiresAfter,
-} from "@mongez/monpulse";
-import { Auth, uploadable, castPassword } from "@mongez/warlock";
+import { castEmail, Casts, Document, expiresAfter } from "@mongez/monpulse";
+import { Auth, castPassword, uploadable } from "@mongez/warlock";
 import UserOutput from "../../output/user-output";
 
 export class User extends Auth {

@@ -5,7 +5,7 @@ import getAppPath from "./get-app-path";
 import selectAppType from "./select-app-type";
 import { App as AppType, Application } from "./types";
 
-let appDetails: AppType = {
+const appDetails: AppType = {
   appName: "",
   appType: "",
   appPath: "",

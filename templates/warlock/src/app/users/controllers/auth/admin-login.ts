@@ -31,8 +31,7 @@ adminLogin.validation = {
 
     if (!user.get("isActive")) {
       return response.badRequest({
-        error:
-          "Your account is suspended!",
+        error: "Your account is suspended!",
       });
     }
 

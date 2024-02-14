@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 export async function confirmAction(message: string) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     inquirer
       .prompt([
         {
@@ -9,7 +9,7 @@ export async function confirmAction(message: string) {
           message,
         },
       ])
-      .then((result) => {
+      .then(result => {
         resolve(result.confirm);
       });
   });
@@ -24,9 +24,9 @@ export async function multiSelect(
         value: string;
         checked?: boolean;
       }
-  )[]
+  )[],
 ) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     inquirer
       .prompt([
         {
@@ -36,7 +36,7 @@ export async function multiSelect(
           choices,
         },
       ])
-      .then((result) => {
+      .then(result => {
         resolve(result.selected);
       });
   });

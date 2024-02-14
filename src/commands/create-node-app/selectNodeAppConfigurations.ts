@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 export default async function selectNodeAppConfigurations(): Promise<
   "warlock" | "basic"
 > {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     inquirer
       .prompt([
         {

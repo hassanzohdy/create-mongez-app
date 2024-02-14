@@ -3,7 +3,7 @@ import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import cache from "@mongez/cache";
 import { userPrefersDarkMode } from "@mongez/dom";
-import { InjectThemeAtom, ToastContainer, catchError } from "@mongez/moonlight";
+import { catchError, InjectThemeAtom, ToastContainer } from "@mongez/moonlight";
 import { useEvent, useOnce } from "@mongez/react-hooks";
 import { routerEvents } from "@mongez/react-router";
 import { getGuestToken, getMe } from "apps/front-office/account/service/auth";

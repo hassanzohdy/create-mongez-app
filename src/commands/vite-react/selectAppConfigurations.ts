@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import { SelectOptions } from "./types";
 
 export default async function selectAppConfigurations(): Promise<SelectOptions> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     inquirer
       .prompt([
         {

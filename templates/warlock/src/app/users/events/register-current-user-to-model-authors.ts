@@ -8,25 +8,25 @@ import { requestContext } from "@mongez/warlock";
 import { User } from "../models/user";
 
 Model.events()
-.onSaving((model: Model, oldModel?: Model) => {
-  const { request } = requestContext<User>();
+  .onSaving((model: Model, oldModel?: Model) => {
+    const { request } = requestContext<User>();
 
-  const user = request?.user;
+    const user = request?.user;
 
-  if (!user) return;
+    if (!user) return;
 
-  if (!oldModel && isEmpty(model.get("createdBy"))) {
-    model.set("createdBy", user.embeddedData);
-  }
+    if (!oldModel && isEmpty(model.get("createdBy"))) {
+      model.set("createdBy", user.embeddedData);
+    }
 
-  model.set("updatedBy", user.embeddedData);
-})
-.onDeleting((model: Model) => {
-  const { request } = requestContext<User>();
+    model.set("updatedBy", user.embeddedData);
+  })
+  .onDeleting((model: Model) => {
+    const { request } = requestContext<User>();
 
-  const user = request?.user;
+    const user = request?.user;
 
-  if (!user || user.userType === "guest") return;
+    if (!user || user.userType === "guest") return;
 
-  model.set("deletedBy", user.embeddedData);
-});
+    model.set("deletedBy", user.embeddedData);
+  });

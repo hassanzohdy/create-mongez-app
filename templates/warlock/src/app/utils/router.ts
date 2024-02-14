@@ -1,9 +1,9 @@
 import {
-  type Middleware,
-  type RouterGroupCallback,
   authMiddleware,
   requestContext,
   router,
+  type Middleware,
+  type RouterGroupCallback,
 } from "@mongez/warlock";
 
 export const adminPath = (path: string) => `/admin${path}`;
@@ -33,7 +33,10 @@ const adminRoutes = (callback: RouterGroupCallback) => {
 /**
  * Register guarded routes that requires user to be logged in to access them.
  */
-export const guarded = (callback: RouterGroupCallback, moreMiddlewares: Middleware[] = []) => {
+export const guarded = (
+  callback: RouterGroupCallback,
+  moreMiddlewares: Middleware[] = [],
+) => {
   return router.group(
     {
       name: "guarded.user",

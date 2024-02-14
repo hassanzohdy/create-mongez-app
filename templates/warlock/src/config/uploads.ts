@@ -1,4 +1,4 @@
-import { UploadsConfigurations, requestContext } from "@mongez/warlock";
+import { UploadsConfigurations } from "@mongez/warlock";
 
 const uploadsConfigurations: UploadsConfigurations = {
   compress: true,

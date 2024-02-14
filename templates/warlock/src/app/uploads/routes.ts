@@ -14,7 +14,7 @@ guarded(() => {
   // Upload chunked files
   router.post(
     ["/uploads/chunks", adminPath("/uploads/chunks")],
-    uploadChunkedFiles
+    uploadChunkedFiles,
   );
   // Delete file by hash from the database
   router.delete(["/uploads/:hash", adminPath("/uploads/:hash")], deleteFile);
