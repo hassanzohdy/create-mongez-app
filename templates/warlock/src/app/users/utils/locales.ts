@@ -10,7 +10,7 @@ groupedTranslations("auth", {
     ar: "بيانات الدخول غير صحيحة",
   },
   accountNotActivated: {
-    en: "Your account is not active, an email has been sent to you with OTP code to activate your account",
-    ar: "حسابك غير مفعل، تم إرسال رسالة بريد إلكتروني إليك برمز التفعيل",
+    en: "Your account is not activated",
+    ar: "حسابك غير مفعل",
   },
 });

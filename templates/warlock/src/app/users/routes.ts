@@ -14,8 +14,6 @@ import login from "./controllers/auth/login";
 import logout from "./controllers/auth/logout";
 import resendActivationCode from "./controllers/auth/resend-activation-code";
 import resetPassword from "./controllers/auth/reset-password";
-import facebookLogin from "./controllers/auth/social/facebook-login";
-import { googleLogin } from "./controllers/auth/social/google-login";
 import verifyForgetPasswordCode from "./controllers/auth/verify-forget-password-code";
 import changePassword from "./controllers/profile/change-password";
 import myProfile from "./controllers/profile/my-profile";
@@ -40,8 +38,6 @@ guardedAdmin(() => {
 // customers auth
 guardedGuest(() => {
   router.post("/login", login);
-  router.post("/login/google", googleLogin);
-  router.post("/login/facebook", facebookLogin);
   router.post("/register", createAccount);
   router.post("/register/verify", activateAccount);
   router.post("/resend-activation-code", resendActivationCode);

@@ -1,6 +1,4 @@
 import { Request, Response, t } from "@mongez/warlock";
-import confirmRegistrationMail from "app/users/mail/confirmRegistrationMail";
-import { Login } from "app/users/models/login";
 import { User } from "app/users/models/user";
 
 export default async function login(
@@ -14,10 +12,6 @@ export default async function login(
   user.save({
     lastLogin: new Date(),
   });
-
-  Login.create({
-    user: user.only(["id", "email", "name"]),
-  }); // log logins
 
   return response.success({
     user: {
@@ -45,9 +39,7 @@ login.validation = {
     if (!user.isActive) {
       // you can send the activation code again
       // or just return a bad request with an error message
-      confirmRegistrationMail(user);
       return response.forbidden({
-        activateAccount: true,
         error: t("auth.accountNotActivated"),
       });
     }

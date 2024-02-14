@@ -16,8 +16,6 @@ export default async function forgetPassword(
     })
     .then(sendForgetPasswordEmail);
 
-  request.user = undefined;
-
   return response.success();
 }
 
