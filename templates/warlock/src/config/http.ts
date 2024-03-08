@@ -17,23 +17,6 @@ const httpConfigurations: HttpConfigurations = {
     // allowed methods
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   },
-  middleware: {
-    // apply the middleware to all routes
-    all: [],
-    // apply the middleware to specific routes
-    only: {
-      // Example:
-      routes: [],
-      namedRoutes: [],
-      middleware: [],
-    },
-    // exclude the middleware from specific routes
-    except: {
-      routes: [],
-      namedRoutes: [],
-      middleware: [],
-    },
-  },
 };
 
 export default httpConfigurations;

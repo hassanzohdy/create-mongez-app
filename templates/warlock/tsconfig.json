@@ -1,7 +1,4 @@
 {
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["esnext"],
@@ -23,14 +20,9 @@
       "app/*": ["src/app/*"],
       "src/*": ["./src/*"],
       "config": ["src/config/index.ts"],
-      "config/*": ["src/config/*"],
-      "core/*": ["src/core/*"],
-      "@mongez/monpulse": ["src/mongodb"],
-      "@mongez/warlock": ["src/warlock"],
-      "@mongez/gnz": ["src/gnz-new"],
-      "_@mongez/time-wizard": ["src/time-wizard"]
+      "config/*": ["src/config/*"]
     },
-    "noEmit": false
+    "noEmit": true
   },
   "include": ["src", "warlock.config.ts"],
   "exclude": ["node_modules"]
