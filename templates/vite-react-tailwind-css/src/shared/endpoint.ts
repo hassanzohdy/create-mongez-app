@@ -1,10 +1,11 @@
 import { RunTimeDriver } from "@mongez/cache";
 import Endpoint, { setCurrentEndpoint } from "@mongez/http";
+import { getCurrentLocaleCode } from "@mongez/localization";
 import { navigateTo } from "@mongez/react-router";
 import user from "apps/front-office/account/user";
 import URLS from "apps/front-office/utils/urls";
 import { AxiosResponse } from "axios";
-import { apiBaseUrl, apiKey, apiOS } from "./flags";
+import { apiBaseUrl } from "./flags";
 
 const endpoint = new Endpoint({
   putToPost: false,
@@ -18,10 +19,6 @@ const endpoint = new Endpoint({
     if (user.isLoggedIn()) {
       return `Bearer ${user.getAccessToken()}`;
     }
-
-    if (!apiKey) return;
-
-    return `key ${apiKey}`;
   },
 });
 
@@ -29,7 +26,7 @@ const endpointEvents = endpoint.events;
 
 endpointEvents.beforeSending(config => {
   const headers: any = config.headers;
-  headers["os"] = apiOS;
+  headers["lang"] = getCurrentLocaleCode();
 });
 
 endpointEvents.onSuccess((response: AxiosResponse) => {
