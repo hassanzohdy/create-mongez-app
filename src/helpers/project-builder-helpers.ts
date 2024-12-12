@@ -103,10 +103,7 @@ export async function copyTemplateFiles(
     path.resolve(appPath, ".gitignore"),
   );
 
-  renameFile(
-    path.resolve(appPath, ".env.example"),
-    path.resolve(appPath, ".env"),
-  );
+  renameFile(path.resolve(appPath, "_.env"), path.resolve(appPath, ".env"));
 }
 
 export async function allDone(appName: string) {
