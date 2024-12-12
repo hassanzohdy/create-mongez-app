@@ -16,7 +16,7 @@ export async function createTailwindReactApp({
 
   await updateEnvFile(appPath, appName);
   await addStylesDependencies(appPath);
-  await installDependencies(appPath);
   await initializeGitRepository(appPath);
+  await installDependencies(appPath);
   await allDone(appName);
 }
