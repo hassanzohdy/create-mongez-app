@@ -1,6 +1,6 @@
 {
     "name": "create-mongez-app",
-    "version": "7.0.7",
+    "version": "7.0.8",
     "main": "src/index.ts",
     "license": "MIT",
     "type": "module",

@@ -72,7 +72,7 @@ export async function updateEnvFile(appPath: string, appName: string) {
   putFile(path.resolve(appPath, ".env"), dotEnv);
 
   // update .env.production file
-  let dotEnvProduction = getFile(path.resolve(appPath, ".env.shared"));
+  let dotEnvProduction = getFile(path.resolve(appPath, ".env"));
 
   dotEnvProduction = dotEnvProduction.replace("AppName", appName).replace(
     "AppCodeName",
@@ -82,7 +82,7 @@ export async function updateEnvFile(appPath: string, appName: string) {
       .join(""),
   );
 
-  putFile(path.resolve(appPath, ".env.shared"), dotEnvProduction);
+  putFile(path.resolve(appPath, ".env"), dotEnvProduction);
 }
 
 export async function copyTemplateFiles(
